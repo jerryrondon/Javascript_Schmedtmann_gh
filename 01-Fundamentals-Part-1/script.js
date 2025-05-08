@@ -37,8 +37,10 @@ console.log(typeof undefineVariable);
 console.log(typeof null);
 
 
+*/
 
 
+/*
 
 /////////////////////////////////
 // Challenge #1
@@ -61,6 +63,65 @@ console.log("Is Mark's BMI higher: ", markHigherBMI);
 */
 
 
+////////////////////////////
+// Template literals
 
+/*
+const firstName = 'Jerry';
+const job = 'developer';
+const birthYear = 1980;
+const currentYear = 2025;
+
+const sentence = "I'm " + firstName + ', a ' + (currentYear - birthYear) + ' years old ' + job + '!';
+console.log(sentence);
+
+const sentence2 = `I'm ${firstName}, a ${currentYear - birthYear} years old ${job}!`;
+console.log(sentence2);
+*/
+
+
+
+/////////////////////////////////
+// Challenge #2
+/*
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+const BMIMark = massMark / (heightMark * heightMark);
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+
+console.log("Mark BMI: ", BMIMark);
+console.log("John BMI: ", BMIJohn);
+
+if (BMIMark > BMIJohn) {
+  console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`);
+} else {
+  console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
+}
+*/
+
+
+
+/////////////////////////////////
+// type conversion and coercion
+
+const inputYear = '1990';
+console.log(inputYear + 18);
+
+console.log(Number(inputYear) + 18);
+
+console.log(Number('string'));
+
+console.log("23" - 10 - "3");
+
+console.log("23" * "3");
+
+console.log("69" / "3");
+
+console.log("2" ** "3");
+
+console.log(1 + 2 + 3 + '4');
 
 
