@@ -106,7 +106,7 @@ if (BMIMark > BMIJohn) {
 
 /////////////////////////////////
 // type conversion and coercion
-
+/*
 const inputYear = '1990';
 console.log(inputYear + 18);
 
@@ -123,5 +123,15 @@ console.log("69" / "3");
 console.log("2" ** "3");
 
 console.log(1 + 2 + 3 + '4');
+*/
 
+
+
+/////////////////////////////////
+// truthy and falsy values
+console.log(Boolean(0));
+console.log(Boolean(5));
+console.log(Boolean(''));
+console.log(Boolean('Jerry'));
+console.log(Boolean({}));
 
