@@ -10,8 +10,9 @@ if (hasDriversLicense) console.log('I can drive');
 */
 
 
-
-
+///////////////////////////////////////
+// Functions
+/*
 function fruitProcessor(apples, oranges) {
   console.log(apples, oranges);
   const juice = `Juice with ${apples} and ${oranges} oranges.`;
@@ -25,4 +26,61 @@ const applejuice = fruitProcessor(5, 0);
 console.log(applejuice);
 // o también
 console.log(fruitProcessor(2, 4));
+*/
+
+
+
+///////////////////////////////////////
+// Function Declaration vs Expressions
+
+function calcAge1(birthYear) {
+  return 2025 - birthYear;
+}
+
+const age1 = calcAge1(1980);
+
+
+const calcAge2 = function (birthYear) {
+  return 2025 - birthYear;
+}
+
+const age2 = calcAge2(1988);
+
+
+///////////////////////////////////////
+// Arrow functions
+
+const calcAge3 = birthYear => 2025 - birthYear;
+const age3 = calcAge3(1982);
+
+console.log(age3);
+
+
+const yearsUntilRetirement = birthYear => {
+  const age = 2025 - birthYear;
+  const retirement = 65 - age;
+  return retirement;
+}
+
+console.log(yearsUntilRetirement(1980));
+
+
+// Usando varios argumentos
+const yearsUntilRetirement2 = (birthYear, retirementAge) => {
+  const age = 2025 - birthYear;
+  return retirementAge - age;
+}
+
+console.log(yearsUntilRetirement2(1980, 71));
+
+
+// Usando varios argumentos
+const yearsUntilRetirement3 = (birthYear, retirementAge) => retirementAge - 2025 + birthYear;
+
+console.log(yearsUntilRetirement3(1980, 72));
+
+
+
+
+
 
