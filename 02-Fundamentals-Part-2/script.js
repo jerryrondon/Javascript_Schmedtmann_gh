@@ -84,10 +84,9 @@ console.log(yearsUntilRetirement3(1980, 72));
 
 
 
-
 ///////////////////////////////////////
 // Arrays
-
+/*
 const friends = ['Karina', 'Robert', 'Luis', 'Carlos'];
 console.log(friends);
 
@@ -104,10 +103,38 @@ console.log(friends);
 
 const secondArrya = ['String', 25, ["another array", "hello"]];
 console.log(secondArrya);
+*/
 
 
 
 
 
+///////////////////////////////////////
+// Array methods
 
+const friends = ['Karina', 'Robert', 'Luis', 'Carlos'];
+friends.push('William');
 
+console.log(friends);
+
+friends.unshift('Jerry');
+console.log(friends);
+
+console.log(friends.pop());
+console.log(friends);
+
+friends.shift();
+console.log(friends);
+
+console.log(friends.indexOf('Karina'));
+console.log(friends.indexOf('No existe en el arreglo'));
+
+friends.push('Karina');
+console.log(friends);
+console.log(friends.indexOf('Karina'));
+
+console.log("includes")
+console.log(friends.includes('Karina'));
+console.log(friends.includes('Bob'));
+friends.push(23);
+console.log(friends.includes('23'));
