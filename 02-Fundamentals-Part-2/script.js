@@ -32,7 +32,7 @@ console.log(fruitProcessor(2, 4));
 
 ///////////////////////////////////////
 // Function Declaration vs Expressions
-
+/*
 function calcAge1(birthYear) {
   return 2025 - birthYear;
 }
@@ -45,11 +45,11 @@ const calcAge2 = function (birthYear) {
 }
 
 const age2 = calcAge2(1988);
-
+*/
 
 ///////////////////////////////////////
 // Arrow functions
-
+/*
 const calcAge3 = birthYear => 2025 - birthYear;
 const age3 = calcAge3(1982);
 
@@ -78,6 +78,33 @@ console.log(yearsUntilRetirement2(1980, 71));
 const yearsUntilRetirement3 = (birthYear, retirementAge) => retirementAge - 2025 + birthYear;
 
 console.log(yearsUntilRetirement3(1980, 72));
+*/
+
+
+
+
+
+
+///////////////////////////////////////
+// Arrays
+
+const friends = ['Karina', 'Robert', 'Luis', 'Carlos'];
+console.log(friends);
+
+
+const years = new Array(1991, 1984, 2008, 2020);
+
+console.log(friends[0]);
+console.log(friends.length);
+
+console.log(friends[friends.length - 1]); // Tomar el ultimo elemento.
+
+friends[2] = 'Romel';
+console.log(friends);
+
+const secondArrya = ['String', 25, ["another array", "hello"]];
+console.log(secondArrya);
+
 
 
 
