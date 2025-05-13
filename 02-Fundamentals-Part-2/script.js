@@ -111,7 +111,7 @@ console.log(secondArrya);
 
 ///////////////////////////////////////
 // Array methods
-
+/*
 const friends = ['Karina', 'Robert', 'Luis', 'Carlos'];
 friends.push('William');
 
@@ -138,3 +138,73 @@ console.log(friends.includes('Karina'));
 console.log(friends.includes('Bob'));
 friends.push(23);
 console.log(friends.includes('23'));
+*/
+
+
+
+
+///////////////////////////////////////
+// Intro to Objects
+/*
+const jerry = {
+  firstName: 'Jerry',
+  lastName: 'Rondon',
+  age: 2025 - 1980,
+  friends: ['Karina', 'Luis', 'Robert']
+}
+
+console.log(jerry);
+
+console.log(jerry.lastName);
+
+
+const auditLogs = {
+  audit_20250511: 'something',
+  audit_20250512: 'something',
+  audit_20250513: 'some information',
+  audit_20250514: 'something else'
+}
+
+const fecha = '20250513';
+const searchKeyword = 'audit_';
+console.log(auditLogs[searchKeyword + fecha]);
+
+const interestedIn = prompt('Indique qué desea saber. Seleccionar firstName, lasName, age o friends');
+console.log(interestedIn);
+console.log(jerry[interestedIn]);
+
+*/
+
+
+
+///////////////////////////////////////
+// Object Methods
+
+const jerry = {
+  firstName: 'Jerry',
+  lastName: 'Rondon',
+  birthYear: 1980,
+  friends: ['Karina', 'Luis', 'Robert'],
+  job: 'Ingeniero Informático',
+  hasDriversLicense: true,
+  calcAge: function () {
+    // console.log(this);
+    return 2025 - this.birthYear;
+  },
+  getSummary: function (isExtendedSummary) {
+    return `${this.firstName} tiene ${this.calcAge()} años y es ${this.job} de profesión. ${this.hasDriversLicense ? 'Cuenta con licencia de conducir' : 'No posee licencia de conducir'} y piensa que ${this.friends[0]} es uno de sus mejores amigos.${isExtendedSummary ? ` Nació en el año ${this.birthYear}.` : ''}`;
+  }
+}
+
+console.log(jerry.calcAge());
+console.log(jerry['calcAge']());
+
+console.log(jerry.getSummary(true));
+console.log(jerry.getSummary());
+console.log(jerry.getSummary(false));
+
+
+
+
+
+
