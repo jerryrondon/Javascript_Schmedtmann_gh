@@ -179,7 +179,7 @@ console.log(jerry[interestedIn]);
 
 ///////////////////////////////////////
 // Object Methods
-
+/*
 const jerry = {
   firstName: 'Jerry',
   lastName: 'Rondon',
@@ -202,6 +202,47 @@ console.log(jerry['calcAge']());
 console.log(jerry.getSummary(true));
 console.log(jerry.getSummary());
 console.log(jerry.getSummary(false));
+*/
+
+
+
+
+///////////////////////////////////////
+// Object Methods
+
+// for (let repetition = 1; repetition <= 10; repetition++) {
+//   console.log(`Imprimiendo repetición Nro ${repetition}`)
+// }
+
+const jerry = [
+  'Jerry',
+  'Rondon',
+  2025 - 1980,
+  'Ingeniero',
+  ['Karina', 'Luis', 'Robert']
+]
+
+console.log(jerry);
+
+for (let i = 0; i < jerry.length; i++) {
+  console.log(jerry[i], typeof jerry[i]);
+}
+
+
+const years = [1988, 1980, 1969, 2007];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2025 - years[i]);
+}
+console.log(years, ages);
+
+
+
+
+
+
+
 
 
 
