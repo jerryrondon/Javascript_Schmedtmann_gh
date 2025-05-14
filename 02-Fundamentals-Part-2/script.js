@@ -214,6 +214,7 @@ console.log(jerry.getSummary(false));
 //   console.log(`Imprimiendo repetición Nro ${repetition}`)
 // }
 
+/*
 const jerry = [
   'Jerry',
   'Rondon',
@@ -237,10 +238,35 @@ for (let i = 0; i < years.length; i++) {
 }
 console.log(years, ages);
 
+*/
 
 
 
 
+
+///////////////////////////////////////
+// while loop
+
+
+const repeticiones = 10;
+let intentos = 0;
+let dice = 0;
+let sum = 0;
+
+for (let i = 1; i <= repeticiones; i++) {
+  dice = 0;
+  intentos = 0;
+  if (repeticiones <= 20) console.log(`Repetition: ${i}`);
+  while (dice !== 6) {
+    intentos++;
+    dice = Math.trunc(Math.random() * 6 + 1);
+    if (repeticiones <= 20) console.log(`dado: ${dice}`);
+    if (dice === 6 && repeticiones <= 20) console.log(`intentos: ${intentos}`);
+  }
+  sum += intentos;
+}
+
+console.log(`Promedio de intentos: ${sum / repeticiones}`);
 
 
 
