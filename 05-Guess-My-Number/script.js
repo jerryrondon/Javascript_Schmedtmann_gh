@@ -1,26 +1,8 @@
 'use strict';
 
-/*
-console.log(document.querySelector('.message').textContent);
-console.log(document.querySelector('#mensaje').baseURI);
-console.log(document.querySelector('.btn'));
-
-
-document.querySelector('.message').textContent = 'Congratulations ✨';
-console.log(document.querySelector('.message').textContent);
-
-document.querySelector('.number').textContent = 13;
-document.querySelector('.score').textContent = 11;
-
-
-document.querySelector('.guess').value = 17;
-console.log(document.querySelector('.guess').value);
-*/
-
-
-
+let highscore = 0;
 let secretNumber = Math.trunc((Math.random() * 20)) + 1;
-const initialScore = 5;
+const initialScore = 10;
 let currentScore = initialScore;
 document.querySelector('.score').textContent = initialScore;
 
@@ -54,7 +36,13 @@ function checkInputHandler() {
     } else if (guess < 1 || guess > 20) {
       document.querySelector('.message').textContent = '✋ Between 1 and 20';
     } else if (guess === secretNumber) {
-      document.querySelector('.message').textContent = 'Congratulations ✨';
+      if (currentScore > highscore) {
+        highscore = currentScore;
+        document.querySelector('.highscore').textContent = highscore;
+        document.querySelector('.message').textContent = '🎊 New High Score! 🎉';
+      } else {
+        document.querySelector('.message').textContent = 'Congratulations ✨';
+      }
       document.querySelector('body').style.backgroundColor = '#60b347';
       document.querySelector('.number').style.width = '30rem';
       document.querySelector('.number').textContent = secretNumber;
