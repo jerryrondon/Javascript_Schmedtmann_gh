@@ -51,6 +51,25 @@ const resetScore = function () {
   score = [0, 0];
 }
 
+const newGame = function () {
+  console.log('New Game');
+  score[0] = 0;
+  score[1] = 0;
+  scoreEl[0].textContent = 0;
+  scoreEl[1].textContent = 0;
+  currentScore[0] = 0;
+  currentScore[1] = 0;
+  currentScoreEl[0].textContent = 0;
+  currentScoreEl[1].textContent = 0;
+  diceEl.classList.add('hidden');
+  activePlayer = 0;
+  playerSectionEl[0].classList.add('player--active');
+  playerSectionEl[1].classList.remove('player--active');
+  playerSectionEl[0].classList.remove('player--winner');
+  playerSectionEl[1].classList.remove('player--winner');
+  playing = true;
+}
+
 const rollDice = function () {
   console.log('Rolling the dice');
   const dice = Math.trunc(Math.random() * 6 + 1);
@@ -77,6 +96,7 @@ btnRoll.addEventListener('click', function () {
   }
 });
 
+// Hold functionality
 btnHold.addEventListener('click', function () {
   if (playing) {
     console.log('Hold');
@@ -95,3 +115,5 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+btnNew.addEventListener('click', newGame);
