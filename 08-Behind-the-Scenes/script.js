@@ -179,3 +179,46 @@ addArrow(2, 5, 8);
 
 
 
+
+
+///////////////////////////////////////
+// Object References in Practice (Shallow vs. Deep Copies)
+
+
+const karina = {
+  firstName: 'Karina',
+  lastName: 'Moreno',
+  age: '25',
+};
+
+function marryPerson(originalPerson, newLastName) {
+  originalPerson.lastName = newLastName;
+  return originalPerson;
+}
+
+const copiaKarina = marryPerson(karina, 'Rondon');
+
+// const copiaKarina = karina;
+// copiaKarina.lastName = 'Perez';
+
+console.log('Original: ', karina);
+console.log('Copia: ', copiaKarina);
+
+
+const jerry = {
+  firstName: 'Jerry',
+  lastName: 'Rondon',
+  age: '45',
+  friends: ['Alice', 'Bob'],
+};
+
+const copiaJerry = { ...jerry };
+copiaJerry.lastName = 'Lozada';
+copiaJerry.friends.push('Karina');
+copiaJerry.friends.push('Luis');
+console.log('Original: ', jerry);
+console.log('Copia: ', copiaJerry);
+
+const cloneJerry = structuredClone(jerry);
+cloneJerry.friends.push('Robert');
+console.log('Clone: ', cloneJerry);
