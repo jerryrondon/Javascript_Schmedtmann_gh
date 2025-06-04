@@ -64,10 +64,38 @@ const restaurant = {
 };
 
 
+
+///////////////////////////////////////////////////
+// Short Circuiting
+console.log(1 || 'Lo que sea');
+
+console.log(undefined || 'String no vacío');
+console.log('String vacío', undefined || '');
+console.log('' || undefined);
+console.log(undefined || null);
+
+console.log('' && undefined);
+console.log(undefined && '');
+
+
+restaurant.numGuests = 23
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('Mushrooms', 'Pepperoni');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('Mushrooms', 'Pepperoni');
+
+
 ///////////////////////////////////////////////////
 // Rest Pattern and Parameters
 
-
+/*
 const [a, b, ...others] = [1, 2, 3, 4, 5];
 console.log(a, b, others);
 
@@ -99,6 +127,10 @@ const x = [3, 5, 8];
 add(...x);
 
 restaurant.orderPizza('Pepperoni', 'Olives', 'Korn', 'Salami');
+*/
+
+
+
 
 ///////////////////////////////////////////////////
 // Spread Operator
