@@ -56,11 +56,95 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(`Main ingredient: ${mainIngredient}`);
+    console.log(`Other ingredients: ${otherIngredients}`);
+    console.log(otherIngredients);
+  }
 };
+
+
+///////////////////////////////////////////////////
+// Rest Pattern and Parameters
+
+
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log([...restaurant.mainMenu, ...restaurant.starterMenu]);
+console.log(pizza, risotto, otherFood);
+
+
+// Objetos
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+console.log(sat);
+
+
+// Funciones
+const add = function (...numbers) {
+  console.log(numbers);
+  let sum = 0;
+  for (let i = 0, l = numbers.length; i < l; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(8, 2);
+add(4, 7, 8, -2, 4, 3, -9);
+
+const x = [3, 5, 8];
+add(...x);
+
+restaurant.orderPizza('Pepperoni', 'Olives', 'Korn', 'Salami');
+
+///////////////////////////////////////////////////
+// Spread Operator
+/*
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const goodNewArr = [1, 2, ...arr];
+console.log(goodNewArr);
+
+console.log(...arr);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join arrays
+const conjoinedArray = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(conjoinedArray);
+
+// Iterables
+const exampleString = 'Jerry';
+console.log(...exampleString);
+// Es equivalente a:
+console.log('J', 'e', 'r', 'r', 'y');
+
+// Objetos
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Vista Arroyo';
+restaurantCopy.mainMenu.push('Gnocchi')
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
+console.log(restaurant.mainMenu);
+console.log(restaurantCopy.mainMenu);
+
+
+const extendedRestaurant = { foundedIn: 1980, ...restaurant, founder: 'Giovani Letrina' }
+console.log(extendedRestaurant);
+/*
+
+
+
 
 ///////////////////////////////////////////////////
 // Destructuring Objects
-
+/*
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
 
@@ -101,14 +185,14 @@ const { openingHours: { fri: { open: dayStart2, close: dayEnd2, totalHours: tota
 console.log(dayStart2, dayEnd2, totalHours2);
 
 
-// Objetos como parámetros de funciones 
+// Objetos como parámetros de funciones
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Sector Carpinterom, Calle Real, Nro 1',
   mainIndex: 1,
   starterIndex: 3,
 });
-
+*/
 
 
 ///////////////////////////////////////////////////
