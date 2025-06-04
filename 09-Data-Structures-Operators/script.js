@@ -63,10 +63,23 @@ const restaurant = {
   }
 };
 
+///////////////////////////////////////////////////
+// Nullish Coalescing Operator
+
+restaurant.numGuests = 0
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+const guests = restaurant.numGuests ?? 10;
+console.log(guests);
+
+
+
 
 
 ///////////////////////////////////////////////////
 // Short Circuiting
+/*
 console.log(1 || 'Lo que sea');
 
 console.log(undefined || 'String no vacío');
@@ -90,7 +103,7 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('Mushrooms', 'Pepperoni');
-
+*/
 
 ///////////////////////////////////////////////////
 // Rest Pattern and Parameters
