@@ -63,6 +63,29 @@ const restaurant = {
   }
 };
 
+
+///////////////////////////////////////////////////
+// for-of Loop
+
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const item of menu.entries()) {
+  console.log(item);
+}
+
+console.log('--- Menú del día ---');
+for (const [index, element] of menu.entries()) {
+  console.log(`${index + 1}: ${element}`);
+}
+
+console.log(menu.entries());
+console.log([...menu.entries()]);
+
+
+
 ///////////////////////////////////////////////////
 // Logical Assignment Operators
 /*
