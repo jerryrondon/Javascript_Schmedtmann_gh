@@ -65,9 +65,43 @@ const restaurant = {
 
 
 ///////////////////////////////////////////////////
+// Optional Chaining
+
+console.log(restaurant.openingHours.fri.open);
+
+console.log(restaurant.openingHours.mon);
+
+// console.log(restaurant.openingHours.mon.open);
+
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open ?? 'No hay información');
+console.log(restaurant.openingHours?.sat?.open ?? 'No hay información');
+
+
+console.log(restaurant.order?.(2, 2) ?? 'El método no existe');
+console.log(restaurant.orderArepa?.(0, 1) ?? 'El método no existe');
+
+// console.log(restaurant.orderArepa(0, 1));
+
+
+const users = [
+  { name: 'Jonas', username: 'jonas' },
+  { name: 'Jerry', username: 'jrondon' },
+  { name: 'Karina', username: 'kmoreno' }
+];
+
+console.log(users[0]?.name ?? 'Arreglo vacío');
+
+const emptyArray = [];
+console.log(emptyArray[0]?.something ?? 'Arreglo vacío');
+
+
+
+
+///////////////////////////////////////////////////
 // for-of Loop
 
-
+/*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 for (const item of menu) console.log(item);
@@ -83,7 +117,7 @@ for (const [index, element] of menu.entries()) {
 
 console.log(menu.entries());
 console.log([...menu.entries()]);
-
+*/
 
 
 ///////////////////////////////////////////////////
