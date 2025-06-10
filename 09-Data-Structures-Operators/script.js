@@ -4,23 +4,7 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const italianFoods = new Set([
-  'pasta',
-  'gnocchi',
-  'tomatoes',
-  'olive oil',
-  'garlic',
-  'basil',
-]);
 
-const mexicanFoods = new Set([
-  'tortillas',
-  'beans',
-  'rice',
-  'tomatoes',
-  'avocado',
-  'garlic',
-]);
 
 // Data needed for first part of the section
 const restaurant = {
@@ -64,8 +48,51 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////
-// Sets
+// New Operations of Sets
 
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+
+const commonFoods = italianFoods.intersection(mexicanFoods);
+console.log(commonFoods);
+
+const unionFoods = italianFoods.union(mexicanFoods);
+console.log(unionFoods);
+
+const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+console.log(uniqueItalianFoods);
+
+const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+console.log(uniqueMexicanFoods);
+
+const symmetricDifferenceFoods = italianFoods.symmetricDifference(mexicanFoods);
+console.log(symmetricDifferenceFoods);
+
+console.log(italianFoods.isDisjointFrom(mexicanFoods));
+
+
+
+
+
+///////////////////////////////////////////////////
+// Sets
+/*
 const exampleSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Rissoto', 'Pasta', 'Pizza']);
 console.log(exampleSet);
 
@@ -106,7 +133,7 @@ console.log(uniqueStaff);
 
 
 console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
-
+*/
 
 
 
