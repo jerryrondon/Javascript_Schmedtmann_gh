@@ -37,13 +37,13 @@ const restaurant = {
       open: 12,
       close: 22,
     },
-    fri: {
-      open: 11,
-      close: 23,
-    },
     sat: {
       open: 0, // Open 24 hours
       close: 24,
+    },
+    fri: {
+      open: 11,
+      close: 23,
     },
   },
   orderDelivery: function ({
@@ -64,9 +64,47 @@ const restaurant = {
 };
 
 
+
+
+///////////////////////////////////////////////////
+// Looping through objects
+
+// Keys
+const properties = Object.keys(restaurant.openingHours);
+console.log(properties);
+
+const restaurantKeys = Object.keys(restaurant);
+console.log(restaurantKeys);
+
+
+// Values
+const values = Object.values(restaurant.openingHours);
+console.log(values);
+
+const restaurantValues = Object.values(restaurant);
+console.log(restaurantValues);
+
+
+// Entries
+const entries = Object.entries(restaurant.openingHours);
+console.log('Entries: ', entries);
+
+const restaurantEntries = Object.entries(restaurant);
+console.log(restaurantEntries);
+
+
+// Looping
+for (const [day, { open: openTime, close: closeTime }] of entries) {
+  console.log(`On ${day} we open at ${openTime} and close at ${closeTime}`);
+}
+
+
+
+
+
 ///////////////////////////////////////////////////
 // Optional Chaining
-
+/*
 console.log(restaurant.openingHours.fri.open);
 
 console.log(restaurant.openingHours.mon);
@@ -94,7 +132,7 @@ console.log(users[0]?.name ?? 'Arreglo vacío');
 
 const emptyArray = [];
 console.log(emptyArray[0]?.something ?? 'Arreglo vacío');
-
+*/
 
 
 
