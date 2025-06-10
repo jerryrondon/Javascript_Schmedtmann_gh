@@ -63,12 +63,56 @@ const restaurant = {
   }
 };
 
+///////////////////////////////////////////////////
+// Sets
+
+const exampleSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Rissoto', 'Pasta', 'Pizza']);
+console.log(exampleSet);
+
+console.log(new Set('Jerry'));
+
+console.log(exampleSet.size);
+
+console.log(exampleSet.has('Pizza'));
+console.log(exampleSet.has('Bread'));
+
+exampleSet.add('Garlic Bread');
+exampleSet.add('Garlic Bread');
+console.log(exampleSet);
+
+let temp = exampleSet.delete('Rissoto');
+console.log(temp);
+console.log(exampleSet);
+
+temp = exampleSet.delete('Bread');
+console.log(temp);
+
+// exampleSet.clear();
+// console.log(exampleSet);
+
+for (const item of exampleSet) console.log(item);
+
+console.log(exampleSet.entries());
+
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffSet = new Set(staff);
+console.log(staff);
+console.log(staffSet);
+
+const uniqueStaff = [...staffSet];
+console.log(uniqueStaff);
+
+
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+
 
 
 
 ///////////////////////////////////////////////////
 // Looping through objects
-
+/*
 // Keys
 const properties = Object.keys(restaurant.openingHours);
 console.log(properties);
@@ -98,8 +142,7 @@ for (const [day, { open: openTime, close: closeTime }] of entries) {
   console.log(`On ${day} we open at ${openTime} and close at ${closeTime}`);
 }
 
-
-
+*/
 
 
 ///////////////////////////////////////////////////
