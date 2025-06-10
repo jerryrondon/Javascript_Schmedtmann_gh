@@ -48,8 +48,61 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////
-// New Operations of Sets
+// Maps: fundamentals
 
+const restaurantMap = new Map();
+
+restaurantMap.set('name', 'Classico Italiano');
+restaurantMap.set(1, 'Caricuao, Venezuela');
+restaurantMap.set(2, 'Florencia, Italia');
+
+console.log(restaurantMap);
+
+restaurantMap
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open!!')
+  .set(false, 'We are closed');
+
+console.log(restaurantMap);
+
+console.log(restaurantMap.get('name'));
+console.log(restaurantMap.get(1));
+console.log(restaurantMap.get(true));
+
+
+const time = 10;
+// const time = 21;
+console.log('Time: ', time);
+console.log(restaurantMap.get(time >= restaurantMap.get('open') && time <= restaurantMap.get('close')));
+
+console.log('-- has --');
+console.log(restaurantMap.has('categories'));
+console.log(restaurantMap.has('owner'));
+
+console.log('-- delete --');
+console.log(restaurantMap.delete(2));
+console.log(restaurantMap);
+
+restaurantMap.set([1, 2], 'Test');
+console.log(restaurantMap);
+console.log(restaurantMap.get([1, 2]));
+
+const arr = [2, 3];
+restaurantMap.set(arr, 'Test');
+console.log(restaurantMap);
+console.log(restaurantMap.get(arr));
+
+restaurantMap.set(document.querySelector('h1'), 'Heading');
+console.log(restaurantMap);
+
+
+
+
+///////////////////////////////////////////////////
+// New Operations of Sets
+/*
 const italianFoods = new Set([
   'pasta',
   'gnocchi',
@@ -85,7 +138,7 @@ const symmetricDifferenceFoods = italianFoods.symmetricDifference(mexicanFoods);
 console.log(symmetricDifferenceFoods);
 
 console.log(italianFoods.isDisjointFrom(mexicanFoods));
-
+*/
 
 
 
