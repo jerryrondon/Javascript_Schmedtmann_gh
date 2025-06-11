@@ -48,8 +48,55 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////
-// Maps: fundamentals
+// Maps: Iteration
 
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct!!'],
+  [false, 'Try again']
+]);
+
+console.log(question);
+
+console.log(Object.entries(restaurant.openingHours));
+
+// Convert object to map
+const openingHoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(openingHoursMap);
+
+// Iteration
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof (key) === 'number') console.log(`${key}: ${value}`)
+}
+// const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+console.log(question.get(question.get('correct') === answer));
+
+
+// Convert map to array
+console.log([...question]);
+
+console.log(question.keys());
+console.log(question.values());
+
+console.log(question.entries());
+console.log([...question.entries()]);
+console.log([...question]);
+
+
+
+
+
+
+///////////////////////////////////////////////////
+// Maps: fundamentals
+/*
 const restaurantMap = new Map();
 
 restaurantMap.set('name', 'Classico Italiano');
@@ -96,7 +143,7 @@ console.log(restaurantMap.get(arr));
 
 restaurantMap.set(document.querySelector('h1'), 'Heading');
 console.log(restaurantMap);
-
+*/
 
 
 
