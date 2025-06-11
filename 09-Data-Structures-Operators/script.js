@@ -48,8 +48,59 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////
-// Maps: Iteration
+// Working With Strings - Part 1
 
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]); // imprime A
+console.log(plane[1]); // imprime 3
+console.log(plane[2]); // imprime 2
+
+console.log('B737'[0]); // imprime B
+console.log(airline.length);
+console.log('B737'.length);
+
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+console.log(airline.indexOf('portugal'));
+
+
+console.log(airline.slice(4, 7)); // imprime Air
+console.log(airline.slice(4)); // imprime Air Portugal
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  console.log(s);
+  if (s === 'B' || s === 'E') console.log('This is a middle seat');
+  else console.log('You got lucky!');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('Jerry'));
+console.log(typeof new String('Jerry'));
+console.log(new String('Jerry').slice(0, 3));
+console.log(typeof new String('Jerry').slice(0, 3));
+
+
+
+
+
+
+
+///////////////////////////////////////////////////
+// Maps: Iteration
+/*
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
   [1, 'C'],
@@ -88,7 +139,7 @@ console.log(question.values());
 console.log(question.entries());
 console.log([...question.entries()]);
 console.log([...question]);
-
+*/
 
 
 
