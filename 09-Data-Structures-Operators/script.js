@@ -48,8 +48,106 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////
-// Working With Strings - Part 1
+// Working With Strings - Part 3
 
+console.log('a+very+long+string'.split('+'));
+console.log('Jerry Rondon Lozada'.split(' '));
+
+const [firstName, lastName] = 'Jerry Rondón'.split(' ');
+console.log(firstName);
+console.log(lastName);
+
+const joinedString = ['Mr.', 'Jerry', 'Rondon'].join('-');
+console.log(joinedString); // imprime Mr.-Jerry-Rondon
+
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '=').padEnd(30, '+'));
+
+
+// Mask credit Card
+const maskCreditCard = function (number) {
+  // const str = number + ''; // Convierte el número a un string
+  const str = String(number);
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+}
+
+console.log(maskCreditCard(3249283968349286));
+console.log(maskCreditCard('907345097543'));
+console.log(maskCreditCard(349286));
+
+
+// Repeat
+const message2 = 'mensaje a repetir!! '
+console.log(message2.repeat(4));
+
+
+
+
+///////////////////////////////////////////////////
+// Working With Strings - Part 2
+/*
+const airline = 'TAP Air Portugal';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+
+// Fix capitalization
+const passenger = 'jERRY';
+console.log(passenger);
+const passengerLowerCase = passenger.toLowerCase();
+const passengerCorrect = passengerLowerCase[0].toUpperCase() + passengerLowerCase.slice(1);
+console.log(passengerCorrect);
+
+
+// comparar emails
+const email = 'hello@jonas.io';
+const email2 = '  hello@jonas.io  \t \n '
+
+const normalizedEmail = email2.toLowerCase().trim();
+console.log(normalizedEmail);
+
+console.log(email === normalizedEmail);
+
+
+// replacing parts of the string
+const priceGB = '288,97£'
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceGB);
+console.log(priceUS);
+
+const announcement = 'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+
+
+
+// regular expressions
+console.log(announcement.replace(/door/g, 'gate'));
+
+
+
+// Booleans
+const plane = 'A320neo';
+
+console.log(plane.includes('A320')); // true
+console.log(plane.startsWith('Air')); // false
+console.log(airline.startsWith('TAP')); // true
+
+console.log(plane.endsWith('neo')); // true
+
+
+*/
+
+
+
+///////////////////////////////////////////////////
+// Working With Strings - Part 1
+/*
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 
@@ -92,7 +190,7 @@ console.log(typeof new String('Jerry'));
 console.log(new String('Jerry').slice(0, 3));
 console.log(typeof new String('Jerry').slice(0, 3));
 
-
+*/
 
 
 
