@@ -1,9 +1,5 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 
 
 // Data needed for first part of the section
@@ -48,8 +44,24 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////
-// Working With Strings - Part 3
+// String Methods Practice
 
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [status, origin, destination, time] = flight.split(';');
+  const output = `${status.includes('Delayed') ? '🔴 ' : ''}${status.replaceAll('_', ' ').trim()} from ${origin.slice(0, 3).toUpperCase()} to ${getCode(destination)} (${time.replace(':', 'h')})`.padStart(45, ' ');
+  console.log(output);
+}
+
+
+///////////////////////////////////////////////////
+// Working With Strings - Part 3
+/*
 console.log('a+very+long+string'.split('+'));
 console.log('Jerry Rondon Lozada'.split(' '));
 
@@ -83,6 +95,7 @@ console.log(maskCreditCard(349286));
 const message2 = 'mensaje a repetir!! '
 console.log(message2.repeat(4));
 
+*/
 
 
 
