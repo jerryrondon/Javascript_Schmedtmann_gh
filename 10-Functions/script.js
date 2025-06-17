@@ -92,3 +92,34 @@ const array = ['Jerry', 'Alice', 'Bob'];
 array.forEach(high5);
 */
 
+
+
+
+//////////////////////////////////////////
+// Functions Returning Functions
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}!`);
+  }
+}
+
+const greeterHey = greet('Hey');
+
+greeterHey('Jerry');
+greeterHey('Alice');
+
+greet('Hello')('Jerry');
+
+
+const greet2 = (greeting) => (name) => console.log(`${greeting} ${name}!`);
+
+const greeterAye = greet2('Aye');
+
+greeterAye('Jerry');
+greeterAye('Alice');
+greet2('Hallo')('Jerry');
+
+
+
+
