@@ -97,7 +97,7 @@ array.forEach(high5);
 
 //////////////////////////////////////////
 // Functions Returning Functions
-
+/*
 const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}!`);
@@ -119,7 +119,44 @@ const greeterAye = greet2('Aye');
 greeterAye('Jerry');
 greeterAye('Alice');
 greet2('Hallo')('Jerry');
+*/
 
 
+
+//////////////////////////////////////////
+// The call and apply Methods
+
+const book = function (flightNum, name) {
+  console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+  this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name })
+};
+
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book,
+};
+
+
+lufthansa.book(345, 'Jerry');
+lufthansa.book(123, 'Larry');
+console.log(lufthansa.bookings);
+
+
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+
+book.call(swiss, 239, 'Mona Lisa Vito');
+console.log(swiss);
+
+book.apply(lufthansa, [117, 'Vinny Gambini']);
+console.log(lufthansa);
 
 
