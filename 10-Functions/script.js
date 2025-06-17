@@ -35,7 +35,7 @@ createBooking('LH123', undefined, 300);
 
 //////////////////////////////////////////
 // Passing Arguments
-
+/*
 const flight = 'LH123';
 const passenger = {
   passengerName: 'Jerry Rondon',
@@ -56,6 +56,39 @@ const checkIn = function (flightNum, passenger) {
 checkIn(flight, passenger);
 console.log(flight);
 console.log(passenger);
+*/
 
 
+//////////////////////////////////////////
+// Functions Accepting Callback Functions
+
+/*
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+}
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+}
+
+
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+}
+
+transformer('Javascritp is the best!', upperFirstWord);
+transformer('JaVasCritp is the best!', upperFirstWord);
+transformer('JaVasCritp is the best!', oneWord);
+
+
+const high5 = function (element) {
+  console.log('👋', element);
+}
+const array = ['Jerry', 'Alice', 'Bob'];
+
+array.forEach(high5);
+*/
 
