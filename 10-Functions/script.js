@@ -202,7 +202,7 @@ console.log(addVAT(100));
 
 //////////////////////////////////////////
 // Immediately Invoked Function Expressions (IIFE)
-
+/*
 // IIFE
 (function () {
   console.log('Este texto sólo se muestra una vez');
@@ -211,14 +211,87 @@ console.log(addVAT(100));
 
 
 (() => console.log('Este texto también se muestra una vez'))();
+*/
 
 
 
 
 
 
+//////////////////////////////////////////
+// Closures
+/*
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  }
+}
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
 
 
+console.dir(booker);
+*/
+
+
+
+//////////////////////////////////////////
+// Closures Examples
+
+// Ejemplo 1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+g();
+f();
+
+
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+}
+
+// h reasigna el valor de f
+h();
+f();
+
+console.dir(f);
+
+
+
+
+// Ejemplo 2
+// const fun = function () {
+//   // console.log(`We are boarding ${n} passengers`);
+//   console.log(`There are 3 groups, each with ${perGroup} passengers`);
+// };
+
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+  const fun = function () {
+    console.log(`We are boarding ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  };
+  setTimeout(fun, wait * 1000);
+};
+
+const perGroup = 1000;
+boardPassengers(180, 2);
 
 
 
