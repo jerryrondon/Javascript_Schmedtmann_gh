@@ -125,7 +125,7 @@ greet2('Hallo')('Jerry');
 
 //////////////////////////////////////////
 // The call and apply Methods
-
+/*
 const book = function (flightNum, name) {
   console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
   this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name })
@@ -194,5 +194,33 @@ console.log(addIVA(300));
 const addTaxGenerator = (rate) => (value) => (1 + rate) * value;
 const addVAT = addTaxGenerator(0.23);
 console.log(addVAT(100));
+*/
+
+
+
+
+
+//////////////////////////////////////////
+// Immediately Invoked Function Expressions (IIFE)
+
+// IIFE
+(function () {
+  console.log('Este texto sólo se muestra una vez');
+})();
+
+
+
+(() => console.log('Este texto también se muestra una vez'))();
+
+
+
+
+
+
+
+
+
+
+
 
 
