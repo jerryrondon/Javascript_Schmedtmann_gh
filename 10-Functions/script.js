@@ -244,6 +244,7 @@ console.dir(booker);
 //////////////////////////////////////////
 // Closures Examples
 
+/*
 // Ejemplo 1
 let f;
 
@@ -292,6 +293,25 @@ const boardPassengers = function (n, wait) {
 
 const perGroup = 1000;
 boardPassengers(180, 2);
+
+*/
+
+
+
+//////////////////////////////////////////
+// Challenge #2
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = header.style.color === 'red' ? 'blue' : 'red';
+  })
+
+})();
+
+
 
 
 
