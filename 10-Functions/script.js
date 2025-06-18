@@ -160,3 +160,39 @@ book.apply(lufthansa, [117, 'Vinny Gambini']);
 console.log(lufthansa);
 
 
+// bind
+const bookSW = book.bind(swiss);
+
+bookSW(665, 'Ralph Macchio');
+console.log(swiss);
+
+// swiss.bookSW(667, 'Fred Gwynne')
+
+
+
+// Objects with event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+}
+
+// document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane);
+document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+
+
+// Partial application
+const addTax = (rate, value) => (1 + rate) * value;
+
+console.log(addTax(0.10, 300));
+
+const addIVA = addTax.bind(null, 0.16);
+console.log(addIVA(300));
+
+const addTaxGenerator = (rate) => (value) => (1 + rate) * value;
+const addVAT = addTaxGenerator(0.23);
+console.log(addVAT(100));
+
+
