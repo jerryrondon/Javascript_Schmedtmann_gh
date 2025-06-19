@@ -74,4 +74,47 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+// Simple Array Methods
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// slice
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice(-1)); // último elemento
+
+console.log(arr.slice(1, -1));
+
+console.log('slice:', arr.slice());
+console.log('spreag y corchetes:', [...arr]);
+
+
+// splice
+// console.log(arr.splice(2, 4));
+console.log(arr.splice(-1));
+
+
+// reverse
+let arr2 = ['1', '2', '3', '4', '5'];
+console.log(arr2.reverse());
+
+// concat
+const arr3 = arr.concat(arr2);
+console.log(arr3);
+console.log([...arr, ...arr2]);
+
+// join
+console.log(arr.join('-'));
+
+
+
+
+
+
+
+
+
+
+
 
