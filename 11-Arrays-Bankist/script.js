@@ -75,7 +75,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 // Simple Array Methods
-
+/*
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
 // slice
@@ -106,6 +106,29 @@ console.log([...arr, ...arr2]);
 
 // join
 console.log(arr.join('-'));
+*/
+
+
+
+/////////////////////////////////////////////////
+// The at method
+
+const arr = [11, 17, 19];
+
+console.log(arr[0]);
+console.log(arr.at(0));
+
+// Para obtener el último elemento del arreglo
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1));
+console.log(arr.slice(-1)[0]);
+
+console.log(arr.at(-1));
+
+console.log('jerry'.at(0));
+console.log('jerry'.at(-1));
+
+
 
 
 
