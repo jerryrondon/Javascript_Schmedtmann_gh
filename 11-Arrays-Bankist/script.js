@@ -63,6 +63,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 
 
+
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
 
@@ -98,6 +99,8 @@ displayMovements(account1.movements);
 
 
 // Fin de BANKIST APP
+/////////////////////////////////////////////////
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -217,6 +220,43 @@ currenciesSet.forEach(function (value, _, entireSet) {
 });
 */
 
+
+
+
+
+/////////////////////////////////////////////////
+// The map Method
+
+const eurToUSD = 1.1;
+
+// const movementsUSD = account1.movements.map(function (mov) {
+//   return mov * eurToUSD;
+// });
+
+const movementsUSD = account1.movements.map((mov) => mov * eurToUSD);
+
+
+console.log(account1.movements);
+console.log(movementsUSD);
+
+
+// Utilizando un for loop
+const movementsUSDfor = [];
+
+for (const movement of account1.movements) {
+  movementsUSDfor.push(movement * eurToUSD);
+}
+
+console.log(movementsUSDfor);
+
+
+
+const movementsDescriptions = account1.movements.map((movement, index) =>
+  `Movement ${index + 1}: you ${movement > 0 ? 'deposited' : 'withdrew'}`.padEnd(26) +
+  `${String(Math.abs(movement))}`.padStart(7)
+);
+
+console.log(movementsDescriptions);
 
 
 
