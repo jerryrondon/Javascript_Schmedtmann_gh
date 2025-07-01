@@ -87,6 +87,30 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+/////////////////////////////////////////////////
+// Computing usernames
+
+// const accounts = [account1, account2, account3, account4];
+
+// const account4 = {
+//   owner: 'Sarah Smith',
+//   movements: [430, 1000, 700, 50, 90],
+//   interestRate: 1,
+//   pin: 4444,
+// };
+
+const createUsernames = function (accounts) {
+  accounts.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(owner => owner[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
+console.log(accounts);
+
 
 
 
@@ -226,7 +250,7 @@ currenciesSet.forEach(function (value, _, entireSet) {
 
 /////////////////////////////////////////////////
 // The map Method
-
+/*
 const eurToUSD = 1.1;
 
 // const movementsUSD = account1.movements.map(function (mov) {
@@ -257,7 +281,7 @@ const movementsDescriptions = account1.movements.map((movement, index) =>
 );
 
 console.log(movementsDescriptions);
-
+*/
 
 
 
