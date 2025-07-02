@@ -87,6 +87,15 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  labelBalance.textContent = `${balance} €`
+};
+
+calcDisplayBalance(account1.movements);
+
+
 /////////////////////////////////////////////////
 // Computing usernames
 
@@ -286,6 +295,50 @@ console.log(movementsDescriptions);
 
 
 
+/////////////////////////////////////////////////
+// The filter method
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const deposits = movements.filter(mov => mov > 0);
+
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+
+
+console.log(movements);
+console.log(deposits);
+console.log(depositsFor);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
 
 
 
+/////////////////////////////////////////////////
+// The reduce Method
+
+// const balance = movements.reduce(function (accumulator, currentValue, index, originalArray) {
+//   console.log(`Iteration ${index}: accumulator ${accumulator}`);
+
+//   return accumulator + currentValue;
+// }, 0);
+
+const balance = movements.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+let balance2 = 0;
+for (const currentValue of movements) balance2 += currentValue;
+
+console.log(balance);
+console.log(balance2);
+
+
+// Calcular el valor máximo de un arreglo
+
+// const max = movements.reduce(function (acc, cur) {
+//   return cur > acc ? cur : acc;
+// }, movements[0]);
+
+const max = movements.reduce((acc, cur) => cur > acc ? cur : acc, movements[0]);
+
+console.log(max);
