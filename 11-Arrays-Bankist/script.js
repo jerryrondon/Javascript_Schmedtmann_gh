@@ -33,7 +33,14 @@ const account4 = {
   pin: 4444,
 };
 
-const accounts = [account1, account2, account3, account4];
+const account5 = {
+  owner: 'Jessica Davis',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
+
+const accounts = [account1, account2, account3, account4, account5];
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -369,7 +376,7 @@ console.log(max);
 
 /////////////////////////////////////////////////
 // The Magic of Chaining Methods
-
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const eurToUSD = 1.1;
 
@@ -379,7 +386,41 @@ const totalDepositUSD = movements
   .reduce((acc, mov) => acc + mov);
 
 console.log(totalDepositUSD);
+*/
 
+
+
+
+
+
+/////////////////////////////////////////////////
+// The find method
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const firstWithdrawal = movements.find(mov => mov < 0);
+
+console.log(movements);
+console.log(firstWithdrawal);
+
+
+
+
+console.log(accounts);
+const account = accounts.find(account => account.owner === 'Jessica Davis');
+console.log('find', account);
+
+
+let accountFor;
+for (const account of accounts) {
+  if (account.owner === 'Jessica Davis') {
+    console.log(account);
+    accountFor = account;
+    break;
+  }
+}
+
+console.log('for', accountFor);
 
 
 
