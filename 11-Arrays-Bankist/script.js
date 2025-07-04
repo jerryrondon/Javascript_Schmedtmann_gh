@@ -83,19 +83,14 @@ const displayMovements = function (movements) {
         <div class="movements__value">${movement}</div>
       </div>
     `;
-
     containerMovements.insertAdjacentHTML('afterbegin', movementRowHTML);
-
-
   });
-
-
 };
 
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-  labelBalance.textContent = `${balance}€`
+const calcDisplayBalance = function (account) {
+  account.balance = account.movements.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  labelBalance.textContent = `${account.balance}€`;
 };
 
 
@@ -144,6 +139,25 @@ createUsernames(accounts);
 console.log(accounts);
 
 
+const updateUI = function (account) {
+  // Display and calculate movemnts
+  displayMovements(account.movements);
+
+  // Display and calculate the balance
+  calcDisplayBalance(account);
+
+  // Display and calculate summary
+  calcDisplaySummary(account);
+}
+
+
+const clearFormElement = function (...formElements) {
+  formElements.forEach((element) => {
+    element.value = '';
+    element.blur();
+  });
+}
+
 
 /////////////////////////////////////////////////
 // Event Handlers
@@ -157,27 +171,38 @@ btnLogin.addEventListener('click', function (event) {
 
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Clear input fields
-    inputLoginUsername.value = inputLoginPin.value = '';
-    inputLoginUsername.blur();
-    inputLoginPin.blur();
+    clearFormElement(inputLoginUsername, inputLoginPin);
 
     // Display UI and welcome message
     containerApp.style.opacity = 1;
     labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
 
-    // Display and calculate movemnts
-    displayMovements(currentAccount.movements);
-
-    // Display and calculate the balance
-    calcDisplayBalance(currentAccount.movements);
-
-    // Display and calculate summary
-    calcDisplaySummary(currentAccount);
-
+    updateUI(currentAccount);
   }
 });
 
 
+
+btnTransfer.addEventListener('click', function (event) {
+  event.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAccount = accounts.find(account => account.username === inputTransferTo.value);
+  clearFormElement(inputTransferAmount, inputTransferTo);
+
+  if (
+    amount > 0
+    && receiverAccount
+    && amount <= currentAccount.balance
+    && receiverAccount?.username !== currentAccount.username
+  ) {
+    currentAccount.movements.push(-amount);
+    receiverAccount.movements.push(amount);
+    updateUI(currentAccount);
+  } else {
+    alert('Error');
+  }
+  console.log(currentAccount, receiverAccount);
+});
 
 
 
