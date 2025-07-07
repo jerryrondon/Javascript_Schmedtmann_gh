@@ -206,6 +206,21 @@ btnTransfer.addEventListener('click', function (event) {
 
 
 
+btnClose.addEventListener('click', function (event) {
+  event.preventDefault();
+  if (
+    currentAccount.username === inputCloseUsername.value
+    && currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+    accounts.splice(index, 1);
+    console.log(index);
+    console.log(accounts);
+    containerApp.style.opacity = 0;
+  }
+  clearFormElement(inputCloseUsername, inputClosePin);
+});
+
 
 
 
