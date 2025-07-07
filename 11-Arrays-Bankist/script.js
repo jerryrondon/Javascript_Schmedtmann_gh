@@ -496,3 +496,24 @@ console.log('for', accountFor);
 
 
 
+/////////////////////////////////////////////////
+// The New findLast and findLastIndex Methods
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(movements);
+
+const lastWithdrawal = movements.findLast(mov => mov < 0);
+console.log(lastWithdrawal);
+
+// 'Your last large (>1k) movement was X movements ago'
+const lastLargeMovementIndex = movements.findLastIndex(mov => Math.abs(mov) > 1000);
+console.log(lastLargeMovementIndex);
+console.log(movements[lastLargeMovementIndex]);
+console.log(`Your last large movement was ${movements.length - lastLargeMovementIndex - 1} movement${movements.length - lastLargeMovementIndex - 1 > 1 ? 's' : ''} ago`);
+
+
+
+
+
+
