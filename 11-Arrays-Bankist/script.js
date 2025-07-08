@@ -532,7 +532,7 @@ console.log(`Your last large movement was ${movements.length - lastLargeMovement
 
 /////////////////////////////////////////////////
 // some and every
-
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // Equality
@@ -548,16 +548,52 @@ console.log('Any deposits: ', anyDeposits);
 // Every
 console.log('Movements > 0', movements.every(mov => mov > 0));
 console.log('Account 4 movements > 0', account4.movements.every(mov => mov > 0));
+*/
+
+/////////////////////////////////////////////////
+// flat an flatMap
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log('arr.flat() ', arr.flat());
+
+
+const arr2 = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log('arr2.flat() ', arr2.flat());
+console.log('arr2.flat(2) ', arr2.flat(2));
 
 
 
+// Balance general
+
+/* Recordar:
+const accounts = [account1, account2, account3, account4, account5];
+const account5 = {
+  owner: 'Jerry Rondon',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 5555,
+};
+*/
+
+const accountMovements = accounts.map(acc => acc.movements);
+console.log(accountMovements);
+
+const accountMovementsFlat = accountMovements.flat();
+console.log('Flattened movements: ', accountMovementsFlat);
+
+const overallBalance = accountMovementsFlat.reduce((accumulator, movement) => accumulator + movement, 0);
+console.log('overall balance 1: ', overallBalance);
 
 
+const sumElements = (acc, mov) => acc + mov;
+const overallBalance2 = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce(sumElements, 0);
+console.log('overall balance 2: ', overallBalance2);
 
 
-
-
-
-
-
-
+const overallBalance3 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(sumElements, 0);
+console.log('overall balance 3: ', overallBalance3);
