@@ -205,6 +205,19 @@ btnTransfer.addEventListener('click', function (event) {
 });
 
 
+btnLoan.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  const loanAmount = Number(inputLoanAmount.value);
+  if (loanAmount > 0
+    && currentAccount.movements.some(mov => mov >= loanAmount * 0.1)) {
+    console.log('Loan', loanAmount);
+    currentAccount.movements.push(loanAmount);
+    updateUI(currentAccount);
+  }
+  clearFormElement(inputLoanAmount);
+});
+
 
 btnClose.addEventListener('click', function (event) {
   event.preventDefault();
@@ -496,9 +509,11 @@ console.log('for', accountFor);
 
 
 
+
+
 /////////////////////////////////////////////////
 // The New findLast and findLastIndex Methods
-
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 console.log(movements);
@@ -511,6 +526,35 @@ const lastLargeMovementIndex = movements.findLastIndex(mov => Math.abs(mov) > 10
 console.log(lastLargeMovementIndex);
 console.log(movements[lastLargeMovementIndex]);
 console.log(`Your last large movement was ${movements.length - lastLargeMovementIndex - 1} movement${movements.length - lastLargeMovementIndex - 1 > 1 ? 's' : ''} ago`);
+*/
+
+
+
+/////////////////////////////////////////////////
+// some and every
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// Equality
+console.log('includes: ', movements.includes(-130));
+
+// Some
+console.log('some: ', movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some(mov => mov > 0);
+console.log('Any deposits: ', anyDeposits);
+
+
+// Every
+console.log('Movements > 0', movements.every(mov => mov > 0));
+console.log('Account 4 movements > 0', account4.movements.every(mov => mov > 0));
+
+
+
+
+
+
+
 
 
 
