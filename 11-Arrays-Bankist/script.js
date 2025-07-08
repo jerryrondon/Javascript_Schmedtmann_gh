@@ -71,10 +71,12 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (movement, index) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (movement, index) {
     const movementType = movement > 0 ? 'deposit' : 'withdrawal';
     const movementRowHTML = `
       <div class="movements__row">
@@ -234,7 +236,12 @@ btnClose.addEventListener('click', function (event) {
   clearFormElement(inputCloseUsername, inputClosePin);
 });
 
-
+let sorted = false;
+btnSort.addEventListener('click', function (event) {
+  event.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
 
 
 
@@ -552,7 +559,7 @@ console.log('Account 4 movements > 0', account4.movements.every(mov => mov > 0))
 
 /////////////////////////////////////////////////
 // flat an flatMap
-
+/*
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log('arr.flat() ', arr.flat());
 
@@ -565,15 +572,15 @@ console.log('arr2.flat(2) ', arr2.flat(2));
 
 // Balance general
 
-/* Recordar:
-const accounts = [account1, account2, account3, account4, account5];
-const account5 = {
-  owner: 'Jerry Rondon',
-  movements: [430, 1000, 700, 50, 90],
-  interestRate: 1,
-  pin: 5555,
-};
-*/
+// Recordar:
+// const accounts = [account1, account2, account3, account4, account5];
+// const account5 = {
+//   owner: 'Jerry Rondon',
+//   movements: [430, 1000, 700, 50, 90],
+//   interestRate: 1,
+//   pin: 5555,
+// };
+
 
 const accountMovements = accounts.map(acc => acc.movements);
 console.log(accountMovements);
@@ -597,3 +604,47 @@ const overallBalance3 = accounts
   .flatMap(acc => acc.movements)
   .reduce(sumElements, 0);
 console.log('overall balance 3: ', overallBalance3);
+
+*/
+
+
+
+
+/////////////////////////////////////////////////
+// Sorting arrays
+
+// Strings
+const owners = ['Zelda', 'Yasmin', 'Xena', 'Carlos', 'Bob', 'Alice'];
+
+console.log('pre-sort: ', owners);
+console.log('sorting: ', owners.sort());
+console.log('post-sort: ', owners);
+
+
+// Numeros
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+console.log(movements.sort());
+
+// Ascendente
+// movements.sort((a, b) => {
+//   if (a >= b) return 1;
+//   if (a < b) return -1;
+// });
+
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+// Descendente
+movements.sort((a, b) => b - a);
+console.log(movements);
+
+
+
+
+
+
+
+
+
+
