@@ -10,6 +10,7 @@ const account1 = {
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
+  type: 'premium',
 };
 
 const account2 = {
@@ -17,6 +18,7 @@ const account2 = {
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
+  type: 'standar',
 };
 
 const account3 = {
@@ -24,6 +26,7 @@ const account3 = {
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
+  type: 'standar',
 };
 
 const account4 = {
@@ -31,6 +34,7 @@ const account4 = {
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
+  type: 'basic',
 };
 
 const account5 = {
@@ -38,9 +42,18 @@ const account5 = {
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 5555,
+  type: 'premium',
 };
 
-const accounts = [account1, account2, account3, account4, account5];
+const account6 = {
+  owner: 'Karina Moreno',
+  movements: [],
+  interestRate: 1,
+  pin: 6666,
+  type: 'premium',
+};
+
+const accounts = [account1, account2, account3, account4, account5, account6];
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -138,7 +151,7 @@ const createUsernames = function (accounts) {
   });
 };
 createUsernames(accounts);
-console.log(accounts);
+// console.log(accounts);
 
 
 const updateUI = function (account) {
@@ -613,38 +626,61 @@ console.log('overall balance 3: ', overallBalance3);
 /////////////////////////////////////////////////
 // Sorting arrays
 
-// Strings
-const owners = ['Zelda', 'Yasmin', 'Xena', 'Carlos', 'Bob', 'Alice'];
+// // Strings
+// const owners = ['Zelda', 'Yasmin', 'Xena', 'Carlos', 'Bob', 'Alice'];
 
-console.log('pre-sort: ', owners);
-console.log('sorting: ', owners.sort());
-console.log('post-sort: ', owners);
+// console.log('pre-sort: ', owners);
+// console.log('sorting: ', owners.sort());
+// console.log('post-sort: ', owners);
 
 
-// Numeros
+// // Numeros
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movements);
+// console.log(movements.sort());
+
+// // Ascendente
+// // movements.sort((a, b) => {
+// //   if (a >= b) return 1;
+// //   if (a < b) return -1;
+// // });
+
+// movements.sort((a, b) => a - b);
+// console.log(movements);
+
+// // Descendente
+// movements.sort((a, b) => b - a);
+// console.log(movements);
+
+
+
+
+
+
+
+/////////////////////////////////////////////////
+// Array Grouping
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-console.log(movements);
-console.log(movements.sort());
 
-// Ascendente
-// movements.sort((a, b) => {
-//   if (a >= b) return 1;
-//   if (a < b) return -1;
-// });
+const groupedMovements =
+  Object.groupBy(movements, movement => movement > 0 ? 'deposit' : 'withdrawal');
 
-movements.sort((a, b) => a - b);
-console.log(movements);
-
-// Descendente
-movements.sort((a, b) => b - a);
-console.log(movements);
+console.log(groupedMovements);
 
 
 
+const groupByActivity = Object.groupBy(accounts, account => {
+  const movementCount = account.movements.length;
+  if (movementCount >= 8) return 'very active';
+  if (movementCount >= 4) return 'active';
+  if (movementCount >= 1) return 'low activity';
+  return 'inactive';
+});
+console.log(groupByActivity);
 
 
-
-
-
-
+// const groupedByType = Object.groupBy(accounts, account => account.type);
+const groupedByType = Object.groupBy(accounts, ({ type }) => type);
+console.log(groupedByType);
 
