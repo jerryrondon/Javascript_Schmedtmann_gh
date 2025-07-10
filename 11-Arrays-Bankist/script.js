@@ -661,26 +661,94 @@ console.log('overall balance 3: ', overallBalance3);
 /////////////////////////////////////////////////
 // Array Grouping
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const groupedMovements =
-  Object.groupBy(movements, movement => movement > 0 ? 'deposit' : 'withdrawal');
+// const groupedMovements =
+//   Object.groupBy(movements, movement => movement > 0 ? 'deposit' : 'withdrawal');
 
-console.log(groupedMovements);
+// console.log(groupedMovements);
 
 
 
-const groupByActivity = Object.groupBy(accounts, account => {
-  const movementCount = account.movements.length;
-  if (movementCount >= 8) return 'very active';
-  if (movementCount >= 4) return 'active';
-  if (movementCount >= 1) return 'low activity';
-  return 'inactive';
+// const groupByActivity = Object.groupBy(accounts, account => {
+//   const movementCount = account.movements.length;
+//   if (movementCount >= 8) return 'very active';
+//   if (movementCount >= 4) return 'active';
+//   if (movementCount >= 1) return 'low activity';
+//   return 'inactive';
+// });
+// console.log(groupByActivity);
+
+
+// // const groupedByType = Object.groupBy(accounts, account => account.type);
+// const groupedByType = Object.groupBy(accounts, ({ type }) => type);
+// console.log(groupedByType);
+
+
+
+
+
+/////////////////////////////////////////////////
+// More Ways of Creating and Filling Arrays
+
+const arr = [1, 2, 3, 4, 5, 6, 7]
+console.log(arr);
+
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+const alfa = new Array('alfa');
+console.log(alfa);
+
+const x = new Array(7);
+console.log(x);
+
+console.log(x.fill(1));
+// console.log(x.fill('alfa'));
+
+console.log(x.fill(7, 3, 5));
+
+
+// Array.from
+const onesArray = Array.from({ length: 7 }, () => 1);
+console.log(onesArray);
+
+const oneToSeven = Array.from({ length: 7 }, (currentElement, index) => index + 1);
+console.log(oneToSeven);
+
+const oneToSeven2 = Array.from({ length: 7 }, (_, i) => i + 1);
+
+// const oneToSeven3 = Array.from({ length: 7 }, (_, i, arr) => {
+//   // console.log(_);
+//   console.log(arr);
+//   return i + 1;
+// });
+
+const randomSeven = Array.from({ length: 7 }, () => Math.floor((Math.random() * 6) + 1));
+console.log(randomSeven);
+
+
+
+// Ejemplo con querySelectorAll
+
+// mal ejemplo
+labelBalance.addEventListener('click', function () {
+  const movementsUIRaw = document.querySelectorAll('.movements__value');
+  console.log(movementsUIRaw);
+
+  console.log([...movementsUIRaw]);
+
+  movementsUIRaw.map(element => element.textContent.replace('€', ''));
+  console.log(movementsUIRaw);
 });
-console.log(groupByActivity);
+
+// buen ejemplo
+labelWelcome.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    element => Number(element.textContent.replace('€', ''))
+  );
+  console.log(movementsUI);
+});
 
 
-// const groupedByType = Object.groupBy(accounts, account => account.type);
-const groupedByType = Object.groupBy(accounts, ({ type }) => type);
-console.log(groupedByType);
 
