@@ -691,64 +691,93 @@ console.log('overall balance 3: ', overallBalance3);
 /////////////////////////////////////////////////
 // More Ways of Creating and Filling Arrays
 
-const arr = [1, 2, 3, 4, 5, 6, 7]
-console.log(arr);
+// const arr = [1, 2, 3, 4, 5, 6, 7]
+// console.log(arr);
 
-console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+// console.log(new Array(1, 2, 3, 4, 5, 6, 7));
 
-const alfa = new Array('alfa');
-console.log(alfa);
+// const alfa = new Array('alfa');
+// console.log(alfa);
 
-const x = new Array(7);
-console.log(x);
+// const x = new Array(7);
+// console.log(x);
 
-console.log(x.fill(1));
-// console.log(x.fill('alfa'));
+// console.log(x.fill(1));
+// // console.log(x.fill('alfa'));
 
-console.log(x.fill(7, 3, 5));
+// console.log(x.fill(7, 3, 5));
 
 
-// Array.from
-const onesArray = Array.from({ length: 7 }, () => 1);
-console.log(onesArray);
+// // Array.from
+// const onesArray = Array.from({ length: 7 }, () => 1);
+// console.log(onesArray);
 
-const oneToSeven = Array.from({ length: 7 }, (currentElement, index) => index + 1);
-console.log(oneToSeven);
+// const oneToSeven = Array.from({ length: 7 }, (currentElement, index) => index + 1);
+// console.log(oneToSeven);
 
-const oneToSeven2 = Array.from({ length: 7 }, (_, i) => i + 1);
+// const oneToSeven2 = Array.from({ length: 7 }, (_, i) => i + 1);
 
-// const oneToSeven3 = Array.from({ length: 7 }, (_, i, arr) => {
-//   // console.log(_);
-//   console.log(arr);
-//   return i + 1;
+// // const oneToSeven3 = Array.from({ length: 7 }, (_, i, arr) => {
+// //   // console.log(_);
+// //   console.log(arr);
+// //   return i + 1;
+// // });
+
+// const randomSeven = Array.from({ length: 7 }, () => Math.floor((Math.random() * 6) + 1));
+// console.log(randomSeven);
+
+
+
+// // Ejemplo con querySelectorAll
+
+// // mal ejemplo
+// labelBalance.addEventListener('click', function () {
+//   const movementsUIRaw = document.querySelectorAll('.movements__value');
+//   console.log(movementsUIRaw);
+
+//   console.log([...movementsUIRaw]);
+
+//   movementsUIRaw.map(element => element.textContent.replace('€', ''));
+//   console.log(movementsUIRaw);
 // });
 
-const randomSeven = Array.from({ length: 7 }, () => Math.floor((Math.random() * 6) + 1));
-console.log(randomSeven);
+// // buen ejemplo
+// labelWelcome.addEventListener('click', function () {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll('.movements__value'),
+//     element => Number(element.textContent.replace('€', ''))
+//   );
+//   console.log(movementsUI);
+// });
 
 
 
-// Ejemplo con querySelectorAll
-
-// mal ejemplo
-labelBalance.addEventListener('click', function () {
-  const movementsUIRaw = document.querySelectorAll('.movements__value');
-  console.log(movementsUIRaw);
-
-  console.log([...movementsUIRaw]);
-
-  movementsUIRaw.map(element => element.textContent.replace('€', ''));
-  console.log(movementsUIRaw);
-});
-
-// buen ejemplo
-labelWelcome.addEventListener('click', function () {
-  const movementsUI = Array.from(
-    document.querySelectorAll('.movements__value'),
-    element => Number(element.textContent.replace('€', ''))
-  );
-  console.log(movementsUI);
-});
 
 
+/////////////////////////////////////////////////
+// Non destructive alternatives
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log('original movements', movements);
+
+const reversedMov = movements.reverse();
+console.log('reversedMov', reversedMov);
+console.log('movements', movements);
+
+console.log('--------------------');
+
+const movements2 = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log('original movements 2', movements2);
+const reversedMovSlice = movements2.slice().reverse();
+console.log('reversed with slice', reversedMovSlice);
+console.log('movements 2', movements2);
+
+const reversedMov3 = movements2.toReversed();
+console.log('toReverse', reversedMov3);
+console.log('movements 2', movements2);
+
+const arr = ['A', 'B', 'C', 'D', 'E'];
+console.log('arr', arr);
+const arr2 = arr.with(2, 'XXXX');
+console.log('arr2', arr2);
+console.log('arr', arr);
