@@ -91,9 +91,8 @@ const displayMovements = function (movements, sort = false) {
 
     const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
+        <div class="movements__type movements__type--${type}">${i + 1
+      } ${type}</div>
         <div class="movements__value">${mov}€</div>
       </div>
     `;
@@ -166,9 +165,8 @@ btnLogin.addEventListener('click', function (e) {
 
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Display UI and message
-    labelWelcome.textContent = `Welcome back, ${
-      currentAccount.owner.split(' ')[0]
-    }`;
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]
+      }`;
     containerApp.style.opacity = 100;
 
     // Clear input fields
@@ -251,3 +249,50 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+
+/////////////////////////////////////////////////
+// Converting and Checking Numbers
+
+console.log(0.1 + 0.2);
+
+console.log(0.1 + 0.2 === 0.3);
+
+console.log(Number('44'));
+console.log(1 + '33');
+console.log(+'33');
+
+// Parsing
+console.log(Number.parseInt('35px'));
+console.log(Number.parseInt('ex67'));
+
+console.log(Number.parseInt('35pxex67'));
+
+console.log(Number.parseInt('35px', 10));
+console.log(Number.parseInt('1011', 2));
+console.log(Number.parseInt('FF', 16));
+
+
+console.log(Number.parseInt('2.5rem', 10));
+console.log(Number.parseFloat('2.5rem', 10));
+
+console.log('número', Number.isNaN(20));
+console.log('string', Number.isNaN('20'));
+
+console.log('NaN', Number.isNaN(+'20X'));
+console.log('infinity', Number.isNaN(23 / 0));
+
+// Verifica si el valor es un número
+console.log(Number.isFinite(20));
+console.log(Number.isFinite('20'));
+console.log(Number.isFinite(+'20X'));
+console.log(Number.isFinite(23 / 0));
+
+// Verifica si el valor es entero
+console.log(Number.isInteger(17));
+console.log(Number.isInteger('20'));
+console.log(Number.isInteger(+'55X'));
+console.log(Number.isInteger(23 / 0));
+
+
+
