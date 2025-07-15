@@ -93,7 +93,7 @@ const displayMovements = function (movements, sort = false) {
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1
       } ${type}</div>
-        <div class="movements__value">${mov}€</div>
+        <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
 
@@ -103,19 +103,19 @@ const displayMovements = function (movements, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance}€`;
+  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
 };
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -125,7 +125,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 const createUsernames = function (accs) {
@@ -204,7 +204,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -254,45 +254,87 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // Converting and Checking Numbers
 
-console.log(0.1 + 0.2);
+// console.log(0.1 + 0.2);
 
-console.log(0.1 + 0.2 === 0.3);
+// console.log(0.1 + 0.2 === 0.3);
 
-console.log(Number('44'));
-console.log(1 + '33');
-console.log(+'33');
+// console.log(Number('44'));
+// console.log(1 + '33');
+// console.log(+'33');
 
-// Parsing
-console.log(Number.parseInt('35px'));
-console.log(Number.parseInt('ex67'));
+// // Parsing
+// console.log(Number.parseInt('35px'));
+// console.log(Number.parseInt('ex67'));
 
-console.log(Number.parseInt('35pxex67'));
+// console.log(Number.parseInt('35pxex67'));
 
-console.log(Number.parseInt('35px', 10));
-console.log(Number.parseInt('1011', 2));
-console.log(Number.parseInt('FF', 16));
-
-
-console.log(Number.parseInt('2.5rem', 10));
-console.log(Number.parseFloat('2.5rem', 10));
-
-console.log('número', Number.isNaN(20));
-console.log('string', Number.isNaN('20'));
-
-console.log('NaN', Number.isNaN(+'20X'));
-console.log('infinity', Number.isNaN(23 / 0));
-
-// Verifica si el valor es un número
-console.log(Number.isFinite(20));
-console.log(Number.isFinite('20'));
-console.log(Number.isFinite(+'20X'));
-console.log(Number.isFinite(23 / 0));
-
-// Verifica si el valor es entero
-console.log(Number.isInteger(17));
-console.log(Number.isInteger('20'));
-console.log(Number.isInteger(+'55X'));
-console.log(Number.isInteger(23 / 0));
+// console.log(Number.parseInt('35px', 10));
+// console.log(Number.parseInt('1011', 2));
+// console.log(Number.parseInt('FF', 16));
 
 
+// console.log(Number.parseInt('2.5rem', 10));
+// console.log(Number.parseFloat('2.5rem', 10));
 
+// console.log('número', Number.isNaN(20));
+// console.log('string', Number.isNaN('20'));
+
+// console.log('NaN', Number.isNaN(+'20X'));
+// console.log('infinity', Number.isNaN(23 / 0));
+
+// // Verifica si el valor es un número
+// console.log(Number.isFinite(20));
+// console.log(Number.isFinite('20'));
+// console.log(Number.isFinite(+'20X'));
+// console.log(Number.isFinite(23 / 0));
+
+// // Verifica si el valor es entero
+// console.log(Number.isInteger(17));
+// console.log(Number.isInteger('20'));
+// console.log(Number.isInteger(+'55X'));
+// console.log(Number.isInteger(23 / 0));
+
+
+
+
+
+
+/////////////////////////////////////////////////
+// Math and Rounding
+
+console.log(Math.sqrt(169));
+console.log(196 ** (1 / 2));
+
+console.log(27 ** (1 / 3));
+console.log(512 ** (1 / 3));
+
+
+// Máximo y mínimo
+console.log(Math.max(1, 2, 3, '4', 5, 6, '7'));
+console.log(Math.min('1', 2, 3, '4', 5, 6, 7));
+console.log(Math.min('1', 2, 3, '4', 5, 6, 7, '23px'));
+
+// Constantes
+console.log(Math.E);
+console.log(Math.PI);
+
+
+// Rounding to integers
+console.log(Math.trunc(10.2));
+
+console.log(Math.round(11.2));
+console.log(Math.round(11.5));
+
+console.log(Math.ceil(12.2));
+console.log(Math.ceil(12.8));
+
+console.log(Math.floor(19.2));
+console.log(Math.floor(19.999));
+
+
+// Rounding decimal places
+console.log((2.75).toFixed(0));
+console.log((2.75).toFixed(3));
+
+console.log((3.428).toFixed(2));
+console.log(+(3.428).toFixed(2));
