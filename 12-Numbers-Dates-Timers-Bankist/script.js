@@ -302,39 +302,76 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // Math and Rounding
 
-console.log(Math.sqrt(169));
-console.log(196 ** (1 / 2));
+// console.log(Math.sqrt(169));
+// console.log(196 ** (1 / 2));
 
-console.log(27 ** (1 / 3));
-console.log(512 ** (1 / 3));
-
-
-// Máximo y mínimo
-console.log(Math.max(1, 2, 3, '4', 5, 6, '7'));
-console.log(Math.min('1', 2, 3, '4', 5, 6, 7));
-console.log(Math.min('1', 2, 3, '4', 5, 6, 7, '23px'));
-
-// Constantes
-console.log(Math.E);
-console.log(Math.PI);
+// console.log(27 ** (1 / 3));
+// console.log(512 ** (1 / 3));
 
 
-// Rounding to integers
-console.log(Math.trunc(10.2));
+// // Máximo y mínimo
+// console.log(Math.max(1, 2, 3, '4', 5, 6, '7'));
+// console.log(Math.min('1', 2, 3, '4', 5, 6, 7));
+// console.log(Math.min('1', 2, 3, '4', 5, 6, 7, '23px'));
 
-console.log(Math.round(11.2));
-console.log(Math.round(11.5));
-
-console.log(Math.ceil(12.2));
-console.log(Math.ceil(12.8));
-
-console.log(Math.floor(19.2));
-console.log(Math.floor(19.999));
+// // Constantes
+// console.log(Math.E);
+// console.log(Math.PI);
 
 
-// Rounding decimal places
-console.log((2.75).toFixed(0));
-console.log((2.75).toFixed(3));
+// // Rounding to integers
+// console.log(Math.trunc(10.2));
 
-console.log((3.428).toFixed(2));
-console.log(+(3.428).toFixed(2));
+// console.log(Math.round(11.2));
+// console.log(Math.round(11.5));
+
+// console.log(Math.ceil(12.2));
+// console.log(Math.ceil(12.8));
+
+// console.log(Math.floor(19.2));
+// console.log(Math.floor(19.999));
+
+
+// // Rounding decimal places
+// console.log((2.75).toFixed(0));
+// console.log((2.75).toFixed(3));
+
+// console.log((3.428).toFixed(2));
+// console.log(+(3.428).toFixed(2));
+
+
+
+
+
+
+/////////////////////////////////////////////////
+// The Remainder Operator
+
+console.log(5 % 2); // 2 * 2 + (resto)1 = 5
+
+
+const isEven = n => n % 2 === 0;
+
+console.log(isEven(8));
+console.log(isEven(11));
+console.log(isEven(1091));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
