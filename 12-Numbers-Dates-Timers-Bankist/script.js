@@ -365,25 +365,56 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // Numeric Separators
 
-const x = 2345670000000
-const x2 = 2_345_670_000_000
+// const x = 2345670000000
+// const x2 = 2_345_670_000_000
 
-console.log(x2);
+// console.log(x2);
 
-const price = 105_99;
-console.log(price);
+// const price = 105_99;
+// console.log(price);
 
-console.log(Number('230_000'));
-console.log(parseInt('230_000'));
+// console.log(Number('230_000'));
+// console.log(parseInt('230_000'));
 
-// const PI = 3._1415 // Error
-
-
+// // const PI = 3._1415 // Error
 
 
 
 
 
+/////////////////////////////////////////////////
+// Working with BigInt
+
+console.log(2 ** 53 - 1);
+console.log(2 ** 53);
+console.log(2 ** 53) + 10;
+
+console.log('Max safe integer', Number.MAX_SAFE_INTEGER);
+
+
+console.log(123456789012345678901234567890);
+console.log(123456789012345678901234567890n);
+
+console.log(BigInt(123456789012345678901234567890));
+
+
+const huge = 123456789012345678901234567890n;
+const num = 100;
+console.log(huge * BigInt(num));
+
+console.log(typeof 20n);
+console.log(20 == 20n);
+console.log(20 === 20n);
+
+
+console.log(huge + ' big int'); // 123456789012345678901234567890 big int
+
+
+console.log(12n / 3n);
+console.log(13n / 3n);
+console.log(15n / 3n);
+console.log(-12n / 3n);
+console.log(-13n / 3n);
 
 
 
