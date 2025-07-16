@@ -347,17 +347,14 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // The Remainder Operator
 
-console.log(5 % 2); // 2 * 2 + (resto)1 = 5
+// console.log(5 % 2); // 2 * 2 + (resto)1 = 5
 
 
-const isEven = n => n % 2 === 0;
+// const isEven = n => n % 2 === 0;
 
-console.log(isEven(8));
-console.log(isEven(11));
-console.log(isEven(1091));
-
-
-
+// console.log(isEven(8));
+// console.log(isEven(11));
+// console.log(isEven(1091));
 
 
 
@@ -365,6 +362,21 @@ console.log(isEven(1091));
 
 
 
+/////////////////////////////////////////////////
+// Numeric Separators
+
+const x = 2345670000000
+const x2 = 2_345_670_000_000
+
+console.log(x2);
+
+const price = 105_99;
+console.log(price);
+
+console.log(Number('230_000'));
+console.log(parseInt('230_000'));
+
+// const PI = 3._1415 // Error
 
 
 
