@@ -424,24 +424,46 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // Creating Dates
 
-// Crear fecha
-const now = new Date();
-console.log(now);
+// // Crear fecha
+// const now = new Date();
+// console.log(now);
 
-console.log(new Date('Jul 16 2025 10:10:10'));
-console.log(new Date('May 1, 2016'));
-console.log(new Date('May 2, 2016'));
+// console.log(new Date('Jul 16 2025 10:10:10'));
+// console.log(new Date('May 1, 2016'));
+// console.log(new Date('May 2, 2016'));
 
 
-console.log(account1.movementsDates[0]);
-console.log(new Date(account1.movementsDates[0]));
+// console.log(account1.movementsDates[0]);
+// console.log(new Date(account1.movementsDates[0]));
 
-console.log(new Date(2037, 3, 1, 14, 59, 30, 492));
+// console.log(new Date(2037, 3, 1, 14, 59, 30, 492));
 
-// Epoch
-const epoch = new Date(0);
-console.log(epoch.toUTCString());
-console.log(new Date(0));
+// // Epoch
+// const epoch = new Date(0);
+// console.log(epoch.toUTCString());
+// console.log(new Date(0));
+
+
+// Metodos
+const future = new Date(2037, 10, 19, 15, 23, 12, 399);
+console.log(future);
+console.log(future.toUTCString());
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.getMilliseconds());
+console.log(future.toISOString());
+console.log(future.toUTCString());
+console.log(future.getTime());
+
+console.log(Date.now());
+
+future.setFullYear(2040)
+console.log(future);
 
 
 
