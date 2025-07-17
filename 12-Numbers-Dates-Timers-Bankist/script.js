@@ -385,36 +385,63 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // Working with BigInt
 
-console.log(2 ** 53 - 1);
-console.log(2 ** 53);
-console.log(2 ** 53) + 10;
+// console.log(2 ** 53 - 1);
+// console.log(2 ** 53);
+// console.log(2 ** 53) + 10;
 
-console.log('Max safe integer', Number.MAX_SAFE_INTEGER);
-
-
-console.log(123456789012345678901234567890);
-console.log(123456789012345678901234567890n);
-
-console.log(BigInt(123456789012345678901234567890));
+// console.log('Max safe integer', Number.MAX_SAFE_INTEGER);
 
 
-const huge = 123456789012345678901234567890n;
-const num = 100;
-console.log(huge * BigInt(num));
+// console.log(123456789012345678901234567890);
+// console.log(123456789012345678901234567890n);
 
-console.log(typeof 20n);
-console.log(20 == 20n);
-console.log(20 === 20n);
+// console.log(BigInt(123456789012345678901234567890));
 
 
-console.log(huge + ' big int'); // 123456789012345678901234567890 big int
+// const huge = 123456789012345678901234567890n;
+// const num = 100;
+// console.log(huge * BigInt(num));
+
+// console.log(typeof 20n);
+// console.log(20 == 20n);
+// console.log(20 === 20n);
 
 
-console.log(12n / 3n);
-console.log(13n / 3n);
-console.log(15n / 3n);
-console.log(-12n / 3n);
-console.log(-13n / 3n);
+// console.log(huge + ' big int'); // 123456789012345678901234567890 big int
+
+
+// console.log(12n / 3n);
+// console.log(13n / 3n);
+// console.log(15n / 3n);
+// console.log(-12n / 3n);
+// console.log(-13n / 3n);
+
+
+
+
+
+
+/////////////////////////////////////////////////
+// Creating Dates
+
+// Crear fecha
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Jul 16 2025 10:10:10'));
+console.log(new Date('May 1, 2016'));
+console.log(new Date('May 2, 2016'));
+
+
+console.log(account1.movementsDates[0]);
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 3, 1, 14, 59, 30, 492));
+
+// Epoch
+const epoch = new Date(0);
+console.log(epoch.toUTCString());
+console.log(new Date(0));
 
 
 
