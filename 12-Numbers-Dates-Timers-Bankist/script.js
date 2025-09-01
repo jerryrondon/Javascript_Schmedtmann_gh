@@ -99,7 +99,7 @@ const formatMovementDate = function (date, locale) {
   const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
 
   const daysPassed = calcDaysPassed(new Date(), date);
-  console.log(daysPassed);
+  // console.log(daysPassed);
 
   if (daysPassed < 1) return `Today`;
   if (daysPassed < 2) return `Yesterday`;
@@ -112,6 +112,13 @@ const formatMovementDate = function (date, locale) {
   // return `${day}/${month}/${year}`
   return Intl.DateTimeFormat(locale).format(date);
 
+}
+
+const formatCurrency = function (value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currency
+  }).format(value);
 }
 
 
@@ -133,11 +140,14 @@ const displayMovements = function (acc, sort = false) {
     const date = new Date(movementDate);
     const displayDate = formatMovementDate(date, acc.locale);
 
+
+    const formattedMov = formatCurrency(movement, acc.locale, acc.currency);
+
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
         <div class="movements__date">${displayDate}</div>
-        <div class="movements__value">${movement.toFixed(2)}€</div>
+        <div class="movements__value">${formattedMov}</div>
       </div>
     `;
 
@@ -147,19 +157,19 @@ const displayMovements = function (acc, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
+  labelBalance.textContent = `${formatCurrency(acc.balance, acc.locale, acc.currency)}`;
 };
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
+  labelSumIn.textContent = formatCurrency(incomes, acc.locale, acc.currency);
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
+  labelSumOut.textContent = formatCurrency(Math.abs(out), acc.locale, acc.currency);
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -169,7 +179,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
+  labelSumInterest.textContent = formatCurrency(interest, acc.locale, acc.currency);
 };
 
 const createUsernames = function (accs) {
@@ -552,5 +562,61 @@ btnSort.addEventListener('click', function (e) {
 // console.log(days2);
 
 
+
+
+
+/////////////////////////////////////////////////
+// Internationalization with numbers
+
+const num = 12355439.57;
+
+console.log('US:    ', new Intl.NumberFormat('en-US').format(num));
+console.log('DE:    ', new Intl.NumberFormat('de-DE').format(num));
+console.log('Syria: ', new Intl.NumberFormat('ar-SY').format(num));
+
+console.log('Navigator: ', new Intl.NumberFormat(navigator.language).format(num));
+console.log('Navigator language: ', navigator.language);
+
+const numberOptions = {
+  style: "unit",
+  unit: 'mile-per-hour'
+}
+const velocity = 459.43;
+console.log('US [mph]: ', new Intl.NumberFormat('en-US', numberOptions).format(velocity));
+console.log('DE [mph]: ', new Intl.NumberFormat('de-DE', numberOptions).format(velocity));
+
+const tempOptions = {
+  style: "unit",
+  unit: 'celsius'
+}
+const temp = 59.43;
+console.log('US [Celsius]: ', new Intl.NumberFormat('en-US', tempOptions).format(temp));
+console.log('DE [Celsius]: ', new Intl.NumberFormat('de-DE', tempOptions).format(temp));
+
+
+const currencyOptions = {
+  style: 'currency',
+  currency: 'EUR'
+}
+const money = 1492.35;
+console.log('US [€]: ', new Intl.NumberFormat('en-US', currencyOptions).format(money));
+console.log('DE [€]: ', new Intl.NumberFormat('de-DE', currencyOptions).format(money));
+
+const porcentaje = 59.52;
+const percentOptions = {
+  style: 'percent'
+}
+
+console.log('US [%]: ', new Intl.NumberFormat('en-US', percentOptions).format(porcentaje));
+console.log('DE [%]: ', new Intl.NumberFormat('de-DE', percentOptions).format(porcentaje));
+
+
+const num2 = 12355439.57;
+const number2Options = {
+  style: "decimal",
+  useGrouping: false,
+}
+console.log('US:    ', new Intl.NumberFormat('en-US', number2Options).format(num2));
+console.log('DE:    ', new Intl.NumberFormat('de-DE', number2Options).format(num2));
 
 
