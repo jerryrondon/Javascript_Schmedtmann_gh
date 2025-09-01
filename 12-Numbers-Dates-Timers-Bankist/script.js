@@ -283,14 +283,18 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(
+      function () {
+        // Add movement
+        currentAccount.movements.push(amount);
 
-    // Agrega la fecha del prestamo
-    currentAccount.movementsDates.push(new Date().toISOString());
+        // Agrega la fecha del prestamo
+        currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+        // Update UI
+        updateUI(currentAccount);
+      },
+      2500);
   }
   inputLoanAmount.value = '';
 });
@@ -568,55 +572,91 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // Internationalization with numbers
 
-const num = 12355439.57;
+// const num = 12355439.57;
 
-console.log('US:    ', new Intl.NumberFormat('en-US').format(num));
-console.log('DE:    ', new Intl.NumberFormat('de-DE').format(num));
-console.log('Syria: ', new Intl.NumberFormat('ar-SY').format(num));
+// console.log('US:    ', new Intl.NumberFormat('en-US').format(num));
+// console.log('DE:    ', new Intl.NumberFormat('de-DE').format(num));
+// console.log('Syria: ', new Intl.NumberFormat('ar-SY').format(num));
 
-console.log('Navigator: ', new Intl.NumberFormat(navigator.language).format(num));
-console.log('Navigator language: ', navigator.language);
+// console.log('Navigator: ', new Intl.NumberFormat(navigator.language).format(num));
+// console.log('Navigator language: ', navigator.language);
 
-const numberOptions = {
-  style: "unit",
-  unit: 'mile-per-hour'
-}
-const velocity = 459.43;
-console.log('US [mph]: ', new Intl.NumberFormat('en-US', numberOptions).format(velocity));
-console.log('DE [mph]: ', new Intl.NumberFormat('de-DE', numberOptions).format(velocity));
+// const numberOptions = {
+//   style: "unit",
+//   unit: 'mile-per-hour'
+// }
+// const velocity = 459.43;
+// console.log('US [mph]: ', new Intl.NumberFormat('en-US', numberOptions).format(velocity));
+// console.log('DE [mph]: ', new Intl.NumberFormat('de-DE', numberOptions).format(velocity));
 
-const tempOptions = {
-  style: "unit",
-  unit: 'celsius'
-}
-const temp = 59.43;
-console.log('US [Celsius]: ', new Intl.NumberFormat('en-US', tempOptions).format(temp));
-console.log('DE [Celsius]: ', new Intl.NumberFormat('de-DE', tempOptions).format(temp));
-
-
-const currencyOptions = {
-  style: 'currency',
-  currency: 'EUR'
-}
-const money = 1492.35;
-console.log('US [€]: ', new Intl.NumberFormat('en-US', currencyOptions).format(money));
-console.log('DE [€]: ', new Intl.NumberFormat('de-DE', currencyOptions).format(money));
-
-const porcentaje = 59.52;
-const percentOptions = {
-  style: 'percent'
-}
-
-console.log('US [%]: ', new Intl.NumberFormat('en-US', percentOptions).format(porcentaje));
-console.log('DE [%]: ', new Intl.NumberFormat('de-DE', percentOptions).format(porcentaje));
+// const tempOptions = {
+//   style: "unit",
+//   unit: 'celsius'
+// }
+// const temp = 59.43;
+// console.log('US [Celsius]: ', new Intl.NumberFormat('en-US', tempOptions).format(temp));
+// console.log('DE [Celsius]: ', new Intl.NumberFormat('de-DE', tempOptions).format(temp));
 
 
-const num2 = 12355439.57;
-const number2Options = {
-  style: "decimal",
-  useGrouping: false,
-}
-console.log('US:    ', new Intl.NumberFormat('en-US', number2Options).format(num2));
-console.log('DE:    ', new Intl.NumberFormat('de-DE', number2Options).format(num2));
+// const currencyOptions = {
+//   style: 'currency',
+//   currency: 'EUR'
+// }
+// const money = 1492.35;
+// console.log('US [€]: ', new Intl.NumberFormat('en-US', currencyOptions).format(money));
+// console.log('DE [€]: ', new Intl.NumberFormat('de-DE', currencyOptions).format(money));
+
+// const porcentaje = 59.52;
+// const percentOptions = {
+//   style: 'percent'
+// }
+
+// console.log('US [%]: ', new Intl.NumberFormat('en-US', percentOptions).format(porcentaje));
+// console.log('DE [%]: ', new Intl.NumberFormat('de-DE', percentOptions).format(porcentaje));
+
+
+// const num2 = 12355439.57;
+// const number2Options = {
+//   style: "decimal",
+//   useGrouping: false,
+// }
+// console.log('US:    ', new Intl.NumberFormat('en-US', number2Options).format(num2));
+// console.log('DE:    ', new Intl.NumberFormat('de-DE', number2Options).format(num2));
+
+
+
+
+
+/////////////////////////////////////////////////
+// Timers: setTimeout and setInterval
+
+// setTimeout
+const ingredients = ['olives', 'spinach'];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza 🍕 with ${ing1} and ${ing2}`),
+  3000,
+  ...ingredients
+);
+console.log('Waiting...');
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+
+
+
+// setInterval
+const intervaloID = setInterval(function () {
+  const now = new Date();
+  console.log(now);
+},
+  1000
+);
+
+setTimeout(
+  () => {
+    clearInterval(intervaloID);
+    console.log('Timer de intervalo detenido');
+  },
+  5100
+);
 
 
