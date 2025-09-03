@@ -204,16 +204,41 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+
+const startLogOutTimer = function () {
+  let time = 30;
+  const tick = function () {
+    const min = String(Math.floor(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    // Imprimir el tiempo restante en la UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // Desloguear al usuario cuando el contador llegue a 0
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Log in to get started';
+      containerApp.style.opacity = 0;
+    }
+    time--;
+  }
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
+
+
+
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
 
 
 // Fake always logged in
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
-labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
+// labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
 
 
 
@@ -247,6 +272,11 @@ btnLogin.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    // Inicia el timer
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
+
   }
 });
 
@@ -274,6 +304,9 @@ btnTransfer.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -293,6 +326,8 @@ btnLoan.addEventListener('click', function (e) {
 
         // Update UI
         updateUI(currentAccount);
+        clearInterval(timer);
+        timer = startLogOutTimer();
       },
       2500);
   }
@@ -630,33 +665,33 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // Timers: setTimeout and setInterval
 
-// setTimeout
-const ingredients = ['olives', 'spinach'];
-const pizzaTimer = setTimeout(
-  (ing1, ing2) => console.log(`Here is your pizza 🍕 with ${ing1} and ${ing2}`),
-  3000,
-  ...ingredients
-);
-console.log('Waiting...');
-if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+// // setTimeout
+// const ingredients = ['olives', 'spinach'];
+// const pizzaTimer = setTimeout(
+//   (ing1, ing2) => console.log(`Here is your pizza 🍕 with ${ing1} and ${ing2}`),
+//   3000,
+//   ...ingredients
+// );
+// console.log('Waiting...');
+// if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
 
 
 
 
-// setInterval
-const intervaloID = setInterval(function () {
-  const now = new Date();
-  console.log(now);
-},
-  1000
-);
+// // setInterval
+// const intervaloID = setInterval(function () {
+//   const now = new Date();
+//   console.log(now);
+// },
+//   1000
+// );
 
-setTimeout(
-  () => {
-    clearInterval(intervaloID);
-    console.log('Timer de intervalo detenido');
-  },
-  5100
-);
+// setTimeout(
+//   () => {
+//     clearInterval(intervaloID);
+//     console.log('Timer de intervalo detenido');
+//   },
+//   5100
+// );
 
 
