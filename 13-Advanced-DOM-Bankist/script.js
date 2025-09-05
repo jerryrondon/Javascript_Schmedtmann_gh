@@ -33,3 +33,51 @@ document.addEventListener('keydown', function (e) {
 
 });
 
+
+
+///////////////////////////////////////
+///////////////////////////////////////
+// Selecting, Creating, and Deleting Elements
+
+// Selecting
+console.log(document.documentElement);
+
+console.log(document.head);
+console.log(document.body);
+
+const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
+console.log(allSections);
+
+
+console.log(document.getElementById('section--1'));
+
+const allButtons = document.getElementsByTagName('button');
+console.log(allButtons);
+
+const allButtons2 = document.getElementsByClassName('btn');
+console.log(allButtons2);
+
+
+// Creating
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.innerHTML = 'We use cookes for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+header.prepend(message);
+
+// const message2 = message.cloneNode(true);
+// header.append(message2);
+
+// console.log(message);
+
+
+// header.before(message2);
+// header.after(message2);
+
+
+
+// Deleting
+document.querySelector('.btn--close-cookie').addEventListener('click', function () {
+  message.remove();
+});
