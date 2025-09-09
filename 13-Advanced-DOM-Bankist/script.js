@@ -62,7 +62,7 @@ console.log(allButtons2);
 // Creating
 const message = document.createElement('div');
 message.classList.add('cookie-message');
-message.innerHTML = 'We use cookes for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+message.innerHTML = 'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
 
 header.prepend(message);
 
@@ -81,3 +81,70 @@ header.prepend(message);
 document.querySelector('.btn--close-cookie').addEventListener('click', function () {
   message.remove();
 });
+
+
+///////////////////////////////////////
+// Styles, Attributes and Classes
+
+
+// Styles
+message.style.backgroundColor = '#37383d';
+// message.style.width = '100vw';
+message.style.width = '120%';
+
+console.log(message.style.backgroundColor);
+console.log(message.style.color);
+
+console.log(getComputedStyle(message));
+
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+
+message.style.height = Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
+
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+const root = document.documentElement;
+const styles = getComputedStyle(root);
+const primaryColor = styles.getPropertyValue("--color-primary").trim();
+console.log('primaryColor: ', primaryColor);
+
+
+// Attributes
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+console.log('designer: ', logo.getAttribute('designer'));
+
+logo.alt = 'Minimalist logo';
+console.log(logo.alt);
+
+logo.setAttribute('company', 'Bankist');
+console.log(document.querySelector('.nav').innerHTML);
+
+console.log(logo.getAttribute('src'));
+
+
+console.log('data-version-number:', logo.dataset.versionNumber);
+
+
+
+// Styles
+logo.classList.add('clase_1', 'clase_2', 'clase_3', 'clase_4');
+console.log(document.querySelector('.nav').innerHTML);
+
+logo.classList.remove('clase_1', 'clase_2');
+console.log(document.querySelector('.nav').innerHTML);
+
+logo.classList.toggle('clase_1');
+console.log(document.querySelector('.nav').innerHTML);
+
+console.log(logo.classList.contains('clase_1'));
+console.log(logo.classList.contains('clase_2'));
+
+
+// NO usar
+// logo.className = 'some_class';
