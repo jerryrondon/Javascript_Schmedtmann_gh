@@ -39,112 +39,124 @@ document.addEventListener('keydown', function (e) {
 ///////////////////////////////////////
 // Selecting, Creating, and Deleting Elements
 
-// Selecting
-console.log(document.documentElement);
+// // Selecting
+// console.log(document.documentElement);
 
-console.log(document.head);
-console.log(document.body);
+// console.log(document.head);
+// console.log(document.body);
 
-const header = document.querySelector('.header');
-const allSections = document.querySelectorAll('.section');
-console.log(allSections);
-
-
-console.log(document.getElementById('section--1'));
-
-const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
-
-const allButtons2 = document.getElementsByClassName('btn');
-console.log(allButtons2);
+// const header = document.querySelector('.header');
+// const allSections = document.querySelectorAll('.section');
+// console.log(allSections);
 
 
-// Creating
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.innerHTML = 'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+// console.log(document.getElementById('section--1'));
 
-header.prepend(message);
+// const allButtons = document.getElementsByTagName('button');
+// console.log(allButtons);
 
-// const message2 = message.cloneNode(true);
-// header.append(message2);
-
-// console.log(message);
+// const allButtons2 = document.getElementsByClassName('btn');
+// console.log(allButtons2);
 
 
-// header.before(message2);
-// header.after(message2);
+// // Creating
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.innerHTML = 'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+// header.prepend(message);
+
+// // const message2 = message.cloneNode(true);
+// // header.append(message2);
+
+// // console.log(message);
+
+
+// // header.before(message2);
+// // header.after(message2);
 
 
 
-// Deleting
-document.querySelector('.btn--close-cookie').addEventListener('click', function () {
-  message.remove();
-});
+// // Deleting
+// document.querySelector('.btn--close-cookie').addEventListener('click', function () {
+//   message.remove();
+// });
 
 
 ///////////////////////////////////////
 // Styles, Attributes and Classes
 
 
-// Styles
-message.style.backgroundColor = '#37383d';
-// message.style.width = '100vw';
-message.style.width = '120%';
+// // Styles
+// message.style.backgroundColor = '#37383d';
+// // message.style.width = '100vw';
+// message.style.width = '120%';
 
-console.log(message.style.backgroundColor);
-console.log(message.style.color);
+// console.log(message.style.backgroundColor);
+// console.log(message.style.color);
 
-console.log(getComputedStyle(message));
+// console.log(getComputedStyle(message));
 
-console.log(getComputedStyle(message).color);
-console.log(getComputedStyle(message).height);
+// console.log(getComputedStyle(message).color);
+// console.log(getComputedStyle(message).height);
 
-message.style.height = Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
-
-
-document.documentElement.style.setProperty('--color-primary', 'orangered');
-
-const root = document.documentElement;
-const styles = getComputedStyle(root);
-const primaryColor = styles.getPropertyValue("--color-primary").trim();
-console.log('primaryColor: ', primaryColor);
+// message.style.height = Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
 
 
-// Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-console.log('designer: ', logo.getAttribute('designer'));
-
-logo.alt = 'Minimalist logo';
-console.log(logo.alt);
-
-logo.setAttribute('company', 'Bankist');
-console.log(document.querySelector('.nav').innerHTML);
-
-console.log(logo.getAttribute('src'));
+// const root = document.documentElement;
+// const styles = getComputedStyle(root);
+// const primaryColor = styles.getPropertyValue("--color-primary").trim();
+// console.log('primaryColor: ', primaryColor);
 
 
-console.log('data-version-number:', logo.dataset.versionNumber);
+// // Attributes
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.src);
+// console.log(logo.className);
+
+// console.log('designer: ', logo.getAttribute('designer'));
+
+// logo.alt = 'Minimalist logo';
+// console.log(logo.alt);
+
+// logo.setAttribute('company', 'Bankist');
+// console.log(document.querySelector('.nav').innerHTML);
+
+// console.log(logo.getAttribute('src'));
+
+
+// console.log('data-version-number:', logo.dataset.versionNumber);
 
 
 
-// Styles
-logo.classList.add('clase_1', 'clase_2', 'clase_3', 'clase_4');
-console.log(document.querySelector('.nav').innerHTML);
+// // Styles
+// logo.classList.add('clase_1', 'clase_2', 'clase_3', 'clase_4');
+// console.log(document.querySelector('.nav').innerHTML);
 
-logo.classList.remove('clase_1', 'clase_2');
-console.log(document.querySelector('.nav').innerHTML);
+// logo.classList.remove('clase_1', 'clase_2');
+// console.log(document.querySelector('.nav').innerHTML);
 
-logo.classList.toggle('clase_1');
-console.log(document.querySelector('.nav').innerHTML);
+// logo.classList.toggle('clase_1');
+// console.log(document.querySelector('.nav').innerHTML);
 
-console.log(logo.classList.contains('clase_1'));
-console.log(logo.classList.contains('clase_2'));
+// console.log(logo.classList.contains('clase_1'));
+// console.log(logo.classList.contains('clase_2'));
 
 
-// NO usar
-// logo.className = 'some_class';
+// // NO usar
+// // logo.className = 'some_class';
+
+
+
+
+///////////////////////////////////////
+// Implementing Smooth Scrolling
+
+
+
+
+
+
