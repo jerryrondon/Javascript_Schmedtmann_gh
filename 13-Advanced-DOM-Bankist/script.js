@@ -151,9 +151,41 @@ document.addEventListener('keydown', function (e) {
 
 
 
-
 ///////////////////////////////////////
 // Implementing Smooth Scrolling
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (event) {
+
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(event.target.getBoundingClientRect());
+
+  console.log('Current scroll (X,Y)', window.scrollX, window.scrollY);
+
+  console.log('Viewport height/width',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth);
+
+  console.log('Viewport Left/Top',
+    document.documentElement.clientLeft,
+    document.documentElement.clientTop);
+
+  //  window.scrollTo(s1coords.left + window.scrollX, s1coords.top + window.scrollY - 10);
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.scrollX,
+  //   top: s1coords.top + window.scrollY,
+  //   behavior: 'smooth'
+  // });
+
+  section1.scrollIntoView({ behavior: 'smooth' });
+
+
+});
 
 
 
