@@ -154,38 +154,38 @@ document.addEventListener('keydown', function (e) {
 ///////////////////////////////////////
 // Implementing Smooth Scrolling
 
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+// const btnScrollTo = document.querySelector('.btn--scroll-to');
+// const section1 = document.querySelector('#section--1');
 
-btnScrollTo.addEventListener('click', function (event) {
+// btnScrollTo.addEventListener('click', function (event) {
 
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
+//   const s1coords = section1.getBoundingClientRect();
+//   console.log(s1coords);
 
-  console.log(event.target.getBoundingClientRect());
+//   console.log(event.target.getBoundingClientRect());
 
-  console.log('Current scroll (X,Y)', window.scrollX, window.scrollY);
+//   console.log('Current scroll (X,Y)', window.scrollX, window.scrollY);
 
-  console.log('Viewport height/width',
-    document.documentElement.clientHeight,
-    document.documentElement.clientWidth);
+//   console.log('Viewport height/width',
+//     document.documentElement.clientHeight,
+//     document.documentElement.clientWidth);
 
-  console.log('Viewport Left/Top',
-    document.documentElement.clientLeft,
-    document.documentElement.clientTop);
+//   console.log('Viewport Left/Top',
+//     document.documentElement.clientLeft,
+//     document.documentElement.clientTop);
 
-  //  window.scrollTo(s1coords.left + window.scrollX, s1coords.top + window.scrollY - 10);
+//   //  window.scrollTo(s1coords.left + window.scrollX, s1coords.top + window.scrollY - 10);
 
-  // window.scrollTo({
-  //   left: s1coords.left + window.scrollX,
-  //   top: s1coords.top + window.scrollY,
-  //   behavior: 'smooth'
-  // });
+//   // window.scrollTo({
+//   //   left: s1coords.left + window.scrollX,
+//   //   top: s1coords.top + window.scrollY,
+//   //   behavior: 'smooth'
+//   // });
 
-  section1.scrollIntoView({ behavior: 'smooth' });
+//   section1.scrollIntoView({ behavior: 'smooth' });
 
 
-});
+// });
 
 
 
@@ -193,17 +193,17 @@ btnScrollTo.addEventListener('click', function (event) {
 ///////////////////////////////////////
 // Types of Events and Event Handlers
 
-const h1 = document.querySelector('h1');
+// const h1 = document.querySelector('h1');
 
-const alertH1 = function () {
-  alert('addEventListener event');
-}
+// const alertH1 = function () {
+//   alert('addEventListener event');
+// }
 
-h1.addEventListener('mouseenter', alertH1);
+// h1.addEventListener('mouseenter', alertH1);
 
-setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 5000);
+// setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 5000);
 
-h1.onmouseenter = function () { alert('onmouseenter event'); };
+// h1.onmouseenter = function () { alert('onmouseenter event'); };
 
 
 
