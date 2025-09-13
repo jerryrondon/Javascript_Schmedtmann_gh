@@ -211,3 +211,46 @@ document.addEventListener('keydown', function (e) {
 
 
 
+///////////////////////////////////////
+// Event Propagation in Practice
+
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () => `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+
+const nav = document.querySelector('.nav');
+const linkList = document.querySelector('.nav__links');
+const navLink = document.querySelector('.nav__link');
+
+
+
+nav.addEventListener('click', function (event) {
+  this.style.backgroundColor = randomColor();
+  console.log('1 Nav Bar', '--target :', event.target, '--current target :', event.currentTarget);
+  console.log('currentTarget === this', event.currentTarget === this);
+});
+
+linkList.addEventListener('click', function (event) {
+  this.style.backgroundColor = randomColor();
+  console.log('2 Link List', '--target :', event.target, '--current target :', event.currentTarget);
+  console.log('currentTarget === this', event.currentTarget === this);
+
+  // Stop propagation
+  event.stopPropagation();
+}, true);
+
+navLink.addEventListener('click', function (event) {
+  this.style.backgroundColor = randomColor();
+  console.log('3 navlink', '--target :', event.target, '--current target :', event.currentTarget);
+  console.log('currentTarget === this', event.currentTarget === this);
+});
+
+
+
+
+
+
+
+
+
+
+
