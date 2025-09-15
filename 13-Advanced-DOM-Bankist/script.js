@@ -49,7 +49,14 @@ btnScrollTo.addEventListener('click', function (event) {
 ///////////////////////////////////////
 // Page navigation
 
-
+document.querySelectorAll('.nav__link').forEach(function (element) {
+  element.addEventListener('click', function (event) {
+    event.preventDefault();
+    const id = this.getAttribute('href');
+    console.log(id);
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  });
+});
 
 
 
