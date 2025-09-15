@@ -290,9 +290,42 @@ document.querySelector('.nav__links').addEventListener('click', function (event)
 
 
 
+///////////////////////////////////////
+// DOM Traversing
+
+const h1 = document.querySelector('h1');
+
+console.log(h1);
+
+
+// Going downwards: child
+console.log(h1.querySelectorAll('.highlight'));
+
+console.log('childNodes: ', h1.childNodes);
+console.log('children: ', h1.children);
+
+
+console.log('First element child: ', h1.firstElementChild);
+console.log('Last element child: ', h1.lastElementChild);
+
+h1.firstElementChild.style.color = 'orangered';
 
 
 
+// Going upwards: parents
+console.log('h1 parentnode', h1.parentNode);
+console.log(h1.parentElement);
+
+console.log(h1.closest('.header'));
 
 
+// Going sideways: siblings
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
 
+console.log(h1.parentElement.children);
+
+[...h1.parentElement.children].forEach(function (element) {
+  if (element !== h1)
+    element.style.transform = 'scale(0.5)';
+});
