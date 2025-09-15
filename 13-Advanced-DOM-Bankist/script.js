@@ -49,16 +49,30 @@ btnScrollTo.addEventListener('click', function (event) {
 ///////////////////////////////////////
 // Page navigation
 
-document.querySelectorAll('.nav__link').forEach(function (element) {
-  element.addEventListener('click', function (event) {
-    event.preventDefault();
-    const id = this.getAttribute('href');
+// document.querySelectorAll('.nav__link').forEach(function (element) {
+//   element.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     const id = this.getAttribute('href');
+//     console.log(id);
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//   });
+// });
+
+
+// Event delegation
+// 1. Agregar un event listener a un ancestro comun a los elementos de interes
+// 2. Determinar que elemento origino el evento
+
+document.querySelector('.nav__links').addEventListener('click', function (event) {
+  console.log(event.target);
+  event.preventDefault();
+
+  if (event.target.classList.contains('nav__link') && !event.target.classList.contains('btn--show-modal')) {
+    const id = event.target.getAttribute('href');
     console.log(id);
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  });
+  }
 });
-
-
 
 
 
