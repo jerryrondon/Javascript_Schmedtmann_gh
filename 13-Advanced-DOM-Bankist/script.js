@@ -134,20 +134,34 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 //// Sticky navegation
 
 // coordenadas en las que se fija la barra en la parte superior
-const initialCoords = section1.getBoundingClientRect();
-console.log(initialCoords);
+// const initialCoords = section1.getBoundingClientRect();
+// console.log(initialCoords);
 
-window.addEventListener('scroll', function () {
-  console.log(this.scrollY);
+// window.addEventListener('scroll', function () {
+//   console.log(this.scrollY);
 
-  if (window.scrollY > initialCoords.top)
-    nav.classList.add('sticky');
-  else nav.classList.remove('sticky');
-});
-
-
+//   if (window.scrollY > initialCoords.top)
+//     nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
 
 
+
+//// Sticky navegation: Intersection Observer API
+
+const observerCallback = function (entries, observer) {
+  entries.forEach(entry => {
+    console.log(entry)
+  });
+};
+
+const observerOptions = {
+  root: null,
+  threshold: [0, 0.2],
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+observer.observe(section1);
 
 
 
