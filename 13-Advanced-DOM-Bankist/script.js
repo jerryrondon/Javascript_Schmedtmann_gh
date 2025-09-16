@@ -109,7 +109,7 @@ tabsContainer.addEventListener('click', function (event) {
 const nav = document.querySelector('.nav');
 
 const handleHover = function (e) {
-  console.log(this);
+  // console.log(this);
 
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
@@ -128,6 +128,27 @@ nav.addEventListener('mouseover', handleHover.bind(0.5));
 
 
 nav.addEventListener('mouseout', handleHover.bind(1));
+
+
+
+//// Sticky navegation
+
+// coordenadas en las que se fija la barra en la parte superior
+const initialCoords = section1.getBoundingClientRect();
+console.log(initialCoords);
+
+window.addEventListener('scroll', function () {
+  console.log(this.scrollY);
+
+  if (window.scrollY > initialCoords.top)
+    nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+
+
+
+
+
 
 
 
