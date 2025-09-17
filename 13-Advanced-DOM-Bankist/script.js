@@ -209,6 +209,33 @@ allSections.forEach(function (section) {
 
 
 
+//// Lazy loading images
+const imgTargets = document.querySelectorAll('img[data-src]');
+
+const loadImg = function (entries, observer) {
+  // console.log(entries);
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    // Reemplazar la imagen por la de alta resolucion
+    entry.target.src = entry.target.dataset.src;
+    // Eliminar el filtro css
+    entry.target.addEventListener('load', function () {
+      entry.target.classList.remove('lazy-img');
+    });
+    imgObserver.unobserve(entry.target);
+  });
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+imgTargets.forEach(img => imgObserver.observe(img));
+
+
+
+
 ///////////////////////////////////////
 ///////////////////////////////////////
 // Selecting, Creating, and Deleting Elements
