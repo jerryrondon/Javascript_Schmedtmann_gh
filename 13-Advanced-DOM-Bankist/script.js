@@ -577,5 +577,32 @@ slider();
 
 
 
+///////////////////////////////////////
+// Lifecycle DOM Events
+
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  console.log('HTML parsed and DOM tree built', event);
+});
+
+
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log('Before unload', e);
+//   e.returnValue = '';
+// });
+
+
+
+
+///////////////////////////////////////
+// Efficient Script Loading: defer and async
+
+
+
 
 
