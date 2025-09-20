@@ -48,3 +48,8 @@ console.log(jerry.hasOwnProperty('firstName'));
 console.log(jerry.hasOwnProperty('species'));
 
 console.log(Person.prototype.hasOwnProperty('species'));
+
+
+///////////////////////
+
+console.log('constructor:', Person.prototype.constructor === Person);
