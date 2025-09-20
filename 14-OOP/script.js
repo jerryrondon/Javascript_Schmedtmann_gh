@@ -1,94 +1,114 @@
 'use strict';
 
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
 
-  // No hacer esto
-  // this.calcAge = function () {
-  //   return 2025 - this.birthYear;
-  // };
-};
+//   // No hacer esto
+//   // this.calcAge = function () {
+//   //   return 2025 - this.birthYear;
+//   // };
+// };
 
-const jerry = new Person('Jerry', 1979);
-console.log(jerry);
+// const jerry = new Person('Jerry', 1979);
+// console.log(jerry);
 
-console.log(jerry instanceof Person); // true
-
-
-
-// Prototipos
-
-console.log(Person.prototype);
-
-Person.prototype.calcAge = function () {
-  return 2025 - this.birthYear;
-};
-
-console.log(jerry.calcAge());
-
-console.log(Person.prototype);
-
-console.log(jerry);
-
-console.log(jerry.__proto__ === Person.prototype);
-
-console.log(Person.prototype.isPrototypeOf(jerry));
-
-console.log(Person.prototype.isPrototypeOf(Person));
-
-console.log(Object.prototype.isPrototypeOf(Person));
+// console.log(jerry instanceof Person); // true
 
 
-Person.prototype.species = 'Homo Sapiens';
-console.log(jerry.species);
+
+// // Prototipos
+
+// console.log(Person.prototype);
+
+// Person.prototype.calcAge = function () {
+//   return 2025 - this.birthYear;
+// };
+
+// console.log(jerry.calcAge());
+
+// console.log(Person.prototype);
+
+// console.log(jerry);
+
+// console.log(jerry.__proto__ === Person.prototype);
+
+// console.log(Person.prototype.isPrototypeOf(jerry));
+
+// console.log(Person.prototype.isPrototypeOf(Person));
+
+// console.log(Object.prototype.isPrototypeOf(Person));
 
 
-console.log(jerry.hasOwnProperty('firstName'));
-console.log(jerry.hasOwnProperty('species'));
+// Person.prototype.species = 'Homo Sapiens';
+// console.log(jerry.species);
 
-console.log(Person.prototype.hasOwnProperty('species'));
+
+// console.log(jerry.hasOwnProperty('firstName'));
+// console.log(jerry.hasOwnProperty('species'));
+
+// console.log(Person.prototype.hasOwnProperty('species'));
 
 
 ///////////////////////
 
-console.log('constructor:', Person.prototype.constructor === Person);
+// console.log('constructor:', Person.prototype.constructor === Person);
 
 
 
 ///////////////////////////////////////
 // Prototypal Inheritance on Built-In Objects
 
-// jerry.__proto__ === Person.prototype
-console.log(jerry.__proto__);
+// // jerry.__proto__ === Person.prototype
+// console.log(jerry.__proto__);
 
-// Objeto
-console.log(jerry.__proto__.__proto__);
+// // Objeto
+// console.log(jerry.__proto__.__proto__);
 
-// El padre de Object es null
-console.log(jerry.__proto__.__proto__.__proto__); // null
-
-
-console.dir(Person.prototype.constructor);
-
-const array = [9, 6, 4, 6, 4, 9, 76];
-console.log(array);
-
-console.log(array.__proto__); // constructor: Array
-console.log(array.__proto__ === Array.prototype); // true
-
-console.log(array.__proto__.__proto__); // constructor: Object
+// // El padre de Object es null
+// console.log(jerry.__proto__.__proto__.__proto__); // null
 
 
-Array.prototype.unique = function () {
-  return [...new Set(this)];
-};
+// console.dir(Person.prototype.constructor);
 
-console.log(array.unique());
+// const array = [9, 6, 4, 6, 4, 9, 76];
+// console.log(array);
 
-const h1 = document.querySelector('h1');
-console.dir(h1);
+// console.log(array.__proto__); // constructor: Array
+// console.log(array.__proto__ === Array.prototype); // true
+
+// console.log(array.__proto__.__proto__); // constructor: Object
 
 
-console.dir(x => x + 1);
+// Array.prototype.unique = function () {
+//   return [...new Set(this)];
+// };
+
+// console.log(array.unique());
+
+// const h1 = document.querySelector('h1');
+// console.dir(h1);
+
+
+// console.dir(x => x + 1);
+
+
+
+
+///////////////////////////////////////
+// Coding Challenge #1
+
+/*
+1. Use a constructor function to implement a Car. A car has a make and a speed property. The speed property is the current speed of the car in km/h;
+2. Implement an 'accelerate' method that will increase the car's speed by 10, and log the new speed to the console;
+3. Implement a 'brake' method that will decrease the car's speed by 5, and log the new speed to the console;
+4. Create 2 car objects and experiment with calling 'accelerate' and 'brake' multiple times on each of them.
+
+DATA CAR 1: 'BMW' going at 120 km/h
+DATA CAR 2: 'Mercedes' going at 95 km/h
+
+GOOD LUCK 😀
+*/
+
+
 
