@@ -111,28 +111,62 @@ GOOD LUCK 😀
 */
 
 
-const Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
+
+// Car.prototype.accelerate = function () {
+//   console.log(this.speed += 10);
+// };
+
+// Car.prototype.brake = function () {
+//   console.log(this.speed -= 5);
+// };
+
+
+// const beamer = new Car('BMW', 120);
+// const mercedes = new Car('Mercedes Benz', 95);
+
+// console.log(beamer);
+// console.log(mercedes);
+
+// beamer.accelerate();
+// beamer.brake();
+
+// mercedes.accelerate();
+// mercedes.brake();
+
+
+
+
+
+///////////////////////////////////////
+// ES6 Classes
+
+// class expression
+// const PersonClass = class {}
+
+class PersonClass {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  calcAge() {
+    console.log(2025 - this.birthYear);
+  }
+  greet = function () {
+    console.log(`Hey ${this.firstName}!`);
+  }
 };
 
-Car.prototype.accelerate = function () {
-  console.log(this.speed += 10);
-};
+const jerry = new PersonClass('jerry', 1979);
+jerry.calcAge();
 
-Car.prototype.brake = function () {
-  console.log(this.speed -= 5);
-};
+console.log(jerry.__proto__ === PersonClass.prototype); // true
 
+// PersonClass.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}!`);
+// };
 
-const beamer = new Car('BMW', 120);
-const mercedes = new Car('Mercedes Benz', 95);
-
-console.log(beamer);
-console.log(mercedes);
-
-beamer.accelerate();
-beamer.brake();
-
-mercedes.accelerate();
-mercedes.brake();
+jerry.greet(); // Hey jerry!
