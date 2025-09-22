@@ -148,8 +148,9 @@ GOOD LUCK 😀
 // const PersonClass = class {}
 
 class PersonClass {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    console.log('constructor:', fullName);
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
   calcAge() {
@@ -157,6 +158,14 @@ class PersonClass {
   }
   greet = function () {
     console.log(`Hey ${this.firstName}!`);
+  }
+  get age() {
+    2025 - this.birthYear;
+  }
+  set fullName(name) {
+    console.log('setter:', name);
+    if (name.includes(' ')) this.fullName = name;
+    else alert(`${name} is not a full name!`);
   }
 };
 
@@ -170,3 +179,33 @@ console.log(jerry.__proto__ === PersonClass.prototype); // true
 // };
 
 jerry.greet(); // Hey jerry!
+
+
+
+
+
+///////////////////////////////////////
+// Setters and Getters
+
+const account = {
+  owner: 'Jonas',
+  movements: [120, 250, 300, 500],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+
+  set latest(mov) {
+    this.movements.push(mov);
+  }
+};
+
+console.log(account);
+console.log(account.movements);
+console.log(account.latest);
+
+account.latest = 50;
+console.log(account.movements);
+console.log(account.hasOwnProperty('latest'));
+
+const karina = new PersonClass('kary katy', 1980);
