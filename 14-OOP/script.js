@@ -164,9 +164,13 @@ class PersonClass {
   }
   set fullName(name) {
     console.log('setter:', name);
-    if (name.includes(' ')) this.fullName = name;
+    if (name.includes(' ')) this._fullName = name;
     else alert(`${name} is not a full name!`);
   }
+  get fullName() {
+    return this._fullName;
+  }
+
 };
 
 const jerry = new PersonClass('jerry', 1979);
@@ -209,3 +213,5 @@ console.log(account.movements);
 console.log(account.hasOwnProperty('latest'));
 
 const karina = new PersonClass('kary katy', 1980);
+console.log(karina.hasOwnProperty('fullName')); // false
+console.log(karina.hasOwnProperty('_fullName')); // true
