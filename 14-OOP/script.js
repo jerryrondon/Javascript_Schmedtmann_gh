@@ -147,9 +147,103 @@ GOOD LUCK 😀
 // class expression
 // const PersonClass = class {}
 
+// class PersonClass {
+//   constructor(fullName, birthYear) {
+//     console.log('constructor:', fullName);
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//   }
+//   calcAge() {
+//     console.log(2025 - this.birthYear);
+//   }
+//   greet = function () {
+//     console.log(`Hey ${this.firstName}!`);
+//   }
+//   get age() {
+//     2025 - this.birthYear;
+//   }
+//   set fullName(name) {
+//     console.log('setter:', name);
+//     if (name.includes(' ')) this._fullName = name;
+//     else alert(`${name} is not a full name!`);
+//   }
+//   get fullName() {
+//     return this._fullName;
+//   }
+
+// };
+
+// const jerry = new PersonClass('jerry', 1979);
+// jerry.calcAge();
+
+// console.log(jerry.__proto__ === PersonClass.prototype); // true
+
+// // PersonClass.prototype.greet = function () {
+// //   console.log(`Hey ${this.firstName}!`);
+// // };
+
+// jerry.greet(); // Hey jerry!
+
+
+
+
+
+///////////////////////////////////////
+// Setters and Getters
+
+// const account = {
+//   owner: 'Jonas',
+//   movements: [120, 250, 300, 500],
+
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   }
+// };
+
+// console.log(account);
+// console.log(account.movements);
+// console.log(account.latest);
+
+// account.latest = 50;
+// console.log(account.movements);
+// console.log(account.hasOwnProperty('latest'));
+
+// const karina = new PersonClass('kary katy', 1980);
+// console.log(karina.hasOwnProperty('fullName')); // false
+// console.log(karina.hasOwnProperty('_fullName')); // true
+
+
+
+
+
+///////////////////////////////////////
+// Static Methods
+
+// constructor functions
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.hey = function () {
+  console.log('Hey there 👋');
+  console.dir(this);
+};
+
+Person.hey(); // 'Hey there 👋
+
+const jerry = new Person('jerry', 1979);
+
+// jerry.hey(); // Uncaught TypeError: jerry.hey is not a function
+
+
+// classes
 class PersonClass {
   constructor(fullName, birthYear) {
-    console.log('constructor:', fullName);
     this.fullName = fullName;
     this.birthYear = birthYear;
   }
@@ -162,56 +256,15 @@ class PersonClass {
   get age() {
     2025 - this.birthYear;
   }
-  set fullName(name) {
-    console.log('setter:', name);
-    if (name.includes(' ')) this._fullName = name;
-    else alert(`${name} is not a full name!`);
-  }
-  get fullName() {
-    return this._fullName;
+
+  static hey() {
+    console.log('Hey there class👋');
+    console.dir(this);
   }
 
-};
+}
 
-const jerry = new PersonClass('jerry', 1979);
-jerry.calcAge();
+PersonClass.hey(); // Hey there class👋
 
-console.log(jerry.__proto__ === PersonClass.prototype); // true
-
-// PersonClass.prototype.greet = function () {
-//   console.log(`Hey ${this.firstName}!`);
-// };
-
-jerry.greet(); // Hey jerry!
-
-
-
-
-
-///////////////////////////////////////
-// Setters and Getters
-
-const account = {
-  owner: 'Jonas',
-  movements: [120, 250, 300, 500],
-
-  get latest() {
-    return this.movements.slice(-1).pop();
-  },
-
-  set latest(mov) {
-    this.movements.push(mov);
-  }
-};
-
-console.log(account);
-console.log(account.movements);
-console.log(account.latest);
-
-account.latest = 50;
-console.log(account.movements);
-console.log(account.hasOwnProperty('latest'));
-
-const karina = new PersonClass('kary katy', 1980);
-console.log(karina.hasOwnProperty('fullName')); // false
-console.log(karina.hasOwnProperty('_fullName')); // true
+const jrondon = new PersonClass('Jerry Rondon', 1979);
+jrondon.hey(); // Uncaught TypeError: jrondon.hey is not a function
